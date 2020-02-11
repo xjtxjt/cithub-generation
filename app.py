@@ -1,72 +1,47 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, send_from_directory
 from datetime import datetime
 import random
 import string
 import json
 import os
-import subprocess
+import logging
+from generation import Generation
+
 
 app = Flask(__name__)
 
+# logging
+logging.basicConfig(filename='log/access.log', level=logging.INFO)
+
 # set up customised configurations
-DIR = 'workspace'
-configuration = json.load(fp=open('configuration.json'))
+TEMP = 'tmp'
+CONFIGURATION_FILE = 'configuration/{}.json'.format(os.environ.get("CALG"))
+configuration = json.load(fp=open(CONFIGURATION_FILE))
 for key, value in configuration.items():
   app.config[key] = value
 
 
-def file_format(filename, stamp):
+def parameter_process(file_prefix):
   """
-  Each uploaded file is identified as FILENAME-STAMP.SUFFIX
+  Handling request parameters based on the configuration file, and upload
+  necessary files.
   """
-  pos = filename.rfind('.')
-  return os.path.join(DIR, filename[:pos] + '-' + stamp + filename[pos:])
-
-
-def file_process(stamp):
-  """
-  Determine whether the post request contains the required files, and save
-  these files in the workspace directory.
-  """
-  for f in app.config['input']:
-    if f['label'] not in request.files:
-        return 0
-    file = request.files[f['label']]
-    file.save(file_format(f['file'], stamp))
-  return 1
-
-
-def generation_process(stamp, timeout):
-  """
-  Run the specified command to invoke the generation process.
-  """
-  result = {'size': 0, 'time': 0, 'array_file': ''}
-  
-  # assign the required input and output files
-  cd = app.config['run']
-  for f in app.config['input']:
-    cd = cd.replace('[{}]'.format(f['label']), file_format(f['file'], stamp))
-  cd = cd.replace('[output]', file_format(app.config['output']['file'], stamp))
-  
-  command = cd.split(' ')
-  command[0] = os.path.join(DIR, command[0])
-  
-  try:
-    start = datetime.now()
-    r = subprocess.run(command, timeout=timeout, capture_output=True)
-    end = datetime.now()
-  except subprocess.TimeoutExpired:
-    return 'timeout', result
-
-  # get the size of the array
-  array_file = file_format(app.config['output']['file'], stamp)
-  command = app.config['output']['get_size'].replace('[output]', array_file).split(' ')
-  r = subprocess.run(command, capture_output=True)
-  
-  result['size'] = int(r.stdout)
-  result['time'] = (end - start).seconds
-  result['array_file'] = array_file
-  return 'success', result
+  parameters = {}
+  for each in app.config['input']:
+    # determine whether the post request contains the required files,
+    # and save these files in the data directory
+    if each['type'] == 'file':
+      if each['name'] in request.files:
+        parameters[each['name']] = os.path.join(TEMP, '{}.{}'.format(file_prefix, each['name']))
+        file = request.files[each['name']]
+        file.save(parameters[each['name']])
+    # append other parameters
+    else:
+      parameters[each['name']] = request.form[each['name']]
+  # output
+  parameters['output'] = os.path.join(TEMP, file_prefix + '.out')
+  parameters['output_type'] = app.config['output']['type']
+  return parameters
 
 
 @app.route('/')
@@ -79,17 +54,17 @@ def generation():
   """
   The generation service.
   """
-  # upload files
   if request.method == 'POST':
-    rv = ''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
-    stamp = datetime.now().isoformat(timespec='seconds') + '-' + rv
-    
-    if file_process(stamp) == 1:
-      # invoke the generation process
-      timeout = int(request.form['timeout'])
-      status, result = generation_process(stamp, timeout)
-      return jsonify({'status': status, 'result': result})
-
+    stamp = ''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
+    prefix = datetime.now().isoformat(timespec='seconds') + '-' + stamp
+    # pre-process of parameters
+    parameters = parameter_process(prefix)
+    # invoke the generation service
+    service = Generation(parameters, app.logger)
+    app.logger.info(parameters)
+    result = service.generation(app.config['bin'], app.config['run'], app.config['get_size'])
+    return {'status': 'success', 'result': result}
+  
 
 @app.route('/workspace/<path:path>')
 def send_file(path):
@@ -97,4 +72,5 @@ def send_file(path):
 
 
 if __name__ == '__main__':
+  app.logger.info('**** Run ' + os.environ.get("CALG") + ' generation service ****')
   app.run(host="0.0.0.0")

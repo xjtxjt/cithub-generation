@@ -1,0 +1,31 @@
+{
+  "name": "PICT",
+  "version": "3.7",
+  "author": "Microsoft",
+  "link": "https://github.com/microsoft/pict",
+  "input": [
+    {
+      "name": "model",
+      "type": "file"
+    },
+    {
+      "name": "strength",
+      "type": "number"
+    },
+    {
+      "name": "timeout",
+      "type": "number"
+    },
+    {
+      "name": "repeat",
+      "type": "number"
+    }
+  ],
+  "output": {
+    "name": "output",
+    "type": "console"
+  },
+  "bin": "pict",
+  "run": "pict [model] /o:[strength] /r:[SEED]",
+  "get_size": ["awk", "BEGIN{a=0;}/^[0-9]/{a+=1;}END{print(a)}", "[output]"]
+}

@@ -1,16 +1,13 @@
-FROM centos:7
+FROM waynedd/ccag-system
 
-WORKDIR /app
-VOLUME /tmp
-
-# java
-RUN yum install -y java-1.8.0-openjdk
-
-# python
-RUN yum install -y python3
 COPY requirements.txt ./
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3.7 install --no-cache-dir -r requirements.txt
 
-COPY . /app
+WORKDIR /cithub-generation
+COPY . /cithub-generation
 
-CMD [ "python3", "/app/app.py" ]
+EXPOSE 6000
+
+# ENTRYPOINT ["python", "/cithub-generation/app.py"]
+ENTRYPOINT [ "gunicorn", "-w", "1", "-b", "0.0.0.0:6000", "--timeout", "20000", "--chdir", "/cithub-generation", "app:app"]
+CMD [""]

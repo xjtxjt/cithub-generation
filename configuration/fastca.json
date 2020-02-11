@@ -1,0 +1,31 @@
+{
+  "name": "FastCA",
+  "version": "1.0",
+  "author": "Junkun Lin",
+  "link": "https://github.com/jkunlin/fastca",
+  "input": [
+    {
+      "name": "model",
+      "type": "file"
+    },
+    {
+      "name": "constraint",
+      "type": "file"
+    },
+    {
+      "name": "timeout",
+      "type": "number"
+    },
+    {
+      "name": "repeat",
+      "type": "number"
+    }
+  ],
+  "output": {
+    "name": "output",
+    "type": "console"
+  },
+  "bin": "FastCA",
+  "run": "FastCA [model] {[constraint]} [timeout] [SEED]",
+  "get_size": ["grep", "total size", "[output]"]
+}
