@@ -3,7 +3,7 @@ import os
 
 # An example of using the service
 FOLDER = os.path.dirname(os.path.abspath(__file__))
-API_URL = 'http://127.0.0.1:6000'
+API_URL = 'http://127.0.0.1:7001'
 
 # required parameters
 data = {'timeout': 30, 'repeat': 3, 'strength': 2}
