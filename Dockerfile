@@ -9,5 +9,5 @@ COPY . /cithub-generation
 EXPOSE 6000
 
 # ENTRYPOINT ["python", "/cithub-generation/app.py"]
-ENTRYPOINT [ "gunicorn", "-w", "1", "-b", "0.0.0.0:6000", "--timeout", "20000", "--chdir", "/cithub-generation", "app:app"]
+ENTRYPOINT [ "gunicorn", "-w", "4", "-b", "0.0.0.0:6000", "--timeout", "40000", "--chdir", "/cithub-generation", "app:app"]
 CMD [""]

@@ -62,13 +62,14 @@ def generation():
     # invoke the generation service
     service = Generation(parameters, app.logger)
     app.logger.info(parameters)
+    print('run with ' + str(parameters))
     result = service.generation(app.config['bin'], app.config['run'], app.config['get_size'])
     return {'status': 'success', 'result': result}
   
 
-@app.route('/workspace/<path:path>')
+@app.route('/tmp/<path:path>')
 def send_file(path):
-  return send_from_directory('workspace', path)
+  return send_from_directory('tmp', path)
 
 
 if __name__ == '__main__':

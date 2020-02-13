@@ -11,7 +11,7 @@ class Generation:
   def __init__(self, parameters, logger):
     self.parameters = parameters
     self.logger = logger
-    self.base = 'bin'
+    self.base = 'bin-local'
     
   def generation(self, binary, command, size_command):
     """
@@ -20,7 +20,7 @@ class Generation:
     # TODO: check if all the required parameters are presented
     # mandatory: model, timeout
     # print(self.parameters)
-    
+
     # parameter: 0) path of executable binary
     command = command.replace(binary, os.path.join(self.base, binary))
     
@@ -38,14 +38,15 @@ class Generation:
     # output file
     array_file = self.parameters['output']
     
+    # get_size command
+    size_cd = size_command.copy()
+    for x in range(len(size_command)):
+      size_cd[x] = size_cd[x].replace('[output]', array_file)
+    
     # the results
     result = {'size': [], 'time': [], 'best': {'size': 0, 'time': 0, 'array': array_file}}
     best_size = sys.maxsize
     best_content = ''
-    
-    # get_size command
-    for x in range(len(size_command)):
-      size_command[x] = size_command[x].replace('[output]', array_file)
 
     for i in range(int(self.parameters['repeat'])):
       # parameter: 3) seed
@@ -54,8 +55,8 @@ class Generation:
 
       try:
         # run
-        start = datetime.now()
         timeout_im = int(self.parameters['timeout']) + 10     # handle FastCA's embedded timeout
+        start = datetime.now()
         r = subprocess.run(cd.split(' '), timeout=timeout_im, capture_output=True)
         end = datetime.now()
         
@@ -64,7 +65,7 @@ class Generation:
             f.write(bytes.decode(r.stdout))
             
         # get size
-        r = subprocess.run(size_command, capture_output=True)
+        r = subprocess.run(size_cd, capture_output=True)
         out = bytes.decode(r.stdout).strip().split(' ')[-1]
         size = int(out)
         time = (end - start).seconds
@@ -83,8 +84,16 @@ class Generation:
         os.remove(array_file)
         
       except subprocess.TimeoutExpired:
-        result['size'].append(-1)
-        result['time'].append(-1)
+        result['size'] = [-1] * int(self.parameters['repeat'])
+        result['time'] = [-1] * int(self.parameters['repeat'])
+        result['best']['size'] = -1
+        result['best']['time'] = -1
+        result['best']['array'] = 'none'
+        # delete model and constraints files
+        for e in ['model', 'constraint']:
+          if e in self.parameters:
+            os.remove(self.parameters[e])
+        return result
     
     # save the final best array file
     with open(array_file, 'w') as f:
