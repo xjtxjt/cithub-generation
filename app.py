@@ -40,6 +40,7 @@ def parameter_process(file_prefix):
       parameters[each['name']] = request.form[each['name']]
   # output
   parameters['output'] = os.path.join(TEMP, file_prefix + '.out')
+  parameters['console'] = os.path.join(TEMP, file_prefix + '.console')
   parameters['output_type'] = app.config['output']['type']
   return parameters
 
@@ -62,7 +63,6 @@ def generation():
     # invoke the generation service
     service = Generation(parameters, app.logger)
     app.logger.info(parameters)
-    print('run with ' + str(parameters))
     result = service.generation(app.config['bin'], app.config['run'], app.config['get_size'])
     return {'status': 'success', 'result': result}
   

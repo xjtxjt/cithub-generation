@@ -27,5 +27,5 @@
   },
   "bin": "acts_3.0.jar",
   "run": "java -Ddoi=[strength] -Doutput=numeric -jar acts_3.0.jar [model] [output]",
-  "get_size": ["grep", "Number of configurations", "[output]"]
+  "get_size": "grep 'Number of Tests' [console] | awk 'END {print $(NF)}'"
 }
