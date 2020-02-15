@@ -27,5 +27,5 @@
   },
   "bin": "pict",
   "run": "pict [model] /o:[strength] /r:[SEED]",
-  "get_size": "awk 'BEGIN {a=0;} /^[0-9]/ {a+=1;} END {print(a)}' [console]"
+  "get_size": "expr $(sed -n '$=' [console]) - 1"
 }

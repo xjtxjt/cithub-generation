@@ -15,9 +15,9 @@ def get_file(alg, name, tway):
 
 
 # required parameters
-strength = 2
+strength = 4
 data = {'timeout': 10, 'repeat': 2, 'strength': strength}
-files = get_file('fastca', 'grep', strength)
+files = get_file('acts', 'gcc', strength)
 
 r = requests.get(API_URL)
 print(r.json())

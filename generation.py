@@ -12,7 +12,7 @@ class Generation:
   def __init__(self, parameters, logger):
     self.parameters = parameters
     self.logger = logger
-    self.base = 'bin'
+    self.base = 'bin-local'
   
   def handle_command(self, binary, run, get_size):
     """
@@ -75,12 +75,14 @@ class Generation:
       
       except subprocess.TimeoutExpired:
         self.logger.info('Timeout Expired at iteration {}'.format(i))
-      #except MemoryError:
-      #  self.logger.info('MemoryError Detected!')
-      #  return {'size': [-9], 'time': [-9], 'best': {'size': -9, 'time': -9, 'array': 'none'}}
+      except MemoryError:
+        self.logger.info('MemoryError Detected!')
+        console_out.close()
+        return {'size': [-9], 'time': [-9], 'best': {'size': -9, 'time': -9, 'array': '', 'console': console_file}}
       end = datetime.now()
       
       # if there is no specified output file, then use console as the output
+      console_out.flush()
       if self.parameters['output_type'] == 'console':
         copyfile(console_file, array_file)
       console_out.close()
@@ -112,10 +114,12 @@ class Generation:
             best_content = f.read()
     
     # save the final best array files
-    with open(console_file, 'w') as f:
-      f.writelines(best_console)
-    with open(array_file, 'w') as f:
-      f.write(best_content)
+    if best_console != '':
+      with open(console_file, 'w') as f:
+        f.writelines(best_console)
+    if best_content != '':
+      with open(array_file, 'w') as f:
+        f.write(best_content)
     
     # delete model and constraints files
     # for e in ['model', 'constraint']:
