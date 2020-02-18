@@ -1,43 +1,39 @@
 # cithub-generation
 
-This project provides a configurable template that can ship standalone covering array generation tools into a docker based web application.
+This project provides a configurable template that can automatically ship standalone covering array generation tools into a docker based web application.
 
 
 
-### Usage
+## Usage
 
-Pull the docker image:
+### Run with embedded tools
 
-```bash
-docker pull waynedd/cithub-generation
-```
-
-Run the container:
-
-```bash
-docker run -d -p [host]:6000 -e CALG=[algorithm] --cpus=2 --memory=16G --name ca-service waynedd/cithub-generation
-```
-
-Here, `algorithm` indicates the particular tool that provides the generation service. Currently, four engines are available:
+Currently, four covering array generation tools are used as the engines of cithub-generation:
 
 * `acts`
 * `pict`
 * `casa`
 * `fastca`
 
+ To deploy any of them, first pull the docker image:
+
+```bash
+docker pull waynedd/cithub-generation
+```
+
+And then run the container:
+
+```bash
+docker run -d -p [host]:6000 -e CALG=[algorithm] --cpus=2 --memory=16G --name ca-service waynedd/cithub-generation
+```
+
+where `algorithm` indicates the particular tool that provides the generation service. 
 
 
-### Project Organisation
 
-1. `bin`: this directory contains the executable binaries of covering array generation tools.
-2. `test`: the examplary python scripts to call the service
+### Run with a new tool
 
-
-
-
-### The Configuration File
-
-The configuration file indicates the basic information of the generation tool, as well as its usage and input/output parameters.
+cithub-generation uses a **configuration file** for providing the necessary information of the generation tool, as well as its usage and input/output parameters. Specifially,
 
 * All input files and parameters should be given in `input`, except for the seed `SEED` (a random seed value will always be used in each execution). In particular, `model`, `timeout` and `repeat` are must-have parameters, and the type of each parameter can only be  `file` or `nnumber`.
 * The type of `output` indicates 1) an output `file` is specified in the running command, or 2) the results can only be obtained from the `console`.
@@ -45,9 +41,11 @@ The configuration file indicates the basic information of the generation tool, a
 * The value of `run` gives the particular command to execute the tool, where each parameter is placed into a square brackets `[]`, and the optional part is placed into a brace `{}`. Note that each parameter here should be explicitly given in `input` (except `[SEED]`).
 * The value of `get_size` gives the command to extract the size of covering array generated from the output of consoles (as we apply a strict timeout strategy, so some tools, e.g. CASA, may fail to write the best array found so far to a file when the time exceeds the budget).
 
+Note that the current version is especially desined for packaging an exisitng command-line tool. If you wish to package an algorithm under developement, it is recommended to design and implement it as a native docker-based web service from scratch.
 
 
-Here is an example of the ACTS tool:
+
+Here is an example of the ACTS tool's configuration file:
 
 ```json
 {
@@ -84,4 +82,11 @@ Here is an example of the ACTS tool:
 ```
 
 
+
+Once the new configuration file is ready, just build (and publish) the image, and then run the container:
+
+```bash
+docker build -t username/new-generation-service
+docker push username/new-generation-service
+```
 

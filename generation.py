@@ -12,7 +12,7 @@ class Generation:
   def __init__(self, parameters, logger):
     self.parameters = parameters
     self.logger = logger
-    self.base = 'bin-local'
+    self.base = 'bin'
   
   def handle_command(self, binary, run, get_size):
     """
