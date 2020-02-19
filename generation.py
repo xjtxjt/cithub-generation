@@ -72,15 +72,13 @@ class Generation:
         subprocess.run(cd.split(' '),
                        timeout=int(self.parameters['timeout']),
                        stdout=console_out)
-      
+        
       except subprocess.TimeoutExpired:
-        self.logger.info('Timeout Expired at iteration {}'.format(i))
-      except MemoryError:
-        self.logger.info('MemoryError Detected!')
-        console_out.close()
-        return {'size': [-9], 'time': [-9], 'best': {'size': -9, 'time': -9, 'array': '', 'console': console_file}}
-      end = datetime.now()
+        self.logger.info('> Timeout expired at iteration {}'.format(i))
       
+      end = datetime.now()
+      time = (end - start).seconds
+
       # if there is no specified output file, then use console as the output
       console_out.flush()
       if self.parameters['output_type'] == 'console':
@@ -93,12 +91,16 @@ class Generation:
       
       if out == '' or out == '0' or not out.isdigit():
         # cannot find an array size, no result is obtained
-        result['size'].append(-1)
-        result['time'].append(-1)
-        continue
-      
+        if time < int(self.parameters['timeout']) - 10:
+          # terminate before timeout, indicates memory out
+          self.logger.info('> Memory out as time = ' + str(time))
+          return {'size': [-9], 'time': [-9], 'best': {'size': -9, 'time': -9, 'array': '', 'console': console_file}}
+        else:
+          result['size'].append(-1)
+          result['time'].append(-1)
+          continue
+
       size = int(out)
-      time = (end - start).seconds
       result['size'].append(size)
       result['time'].append(time)
       

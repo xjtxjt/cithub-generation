@@ -15,8 +15,8 @@ def get_file(alg, name, tway):
 
 
 # required parameters
-strength = 4
-data = {'timeout': 10, 'repeat': 2, 'strength': strength}
+strength = 2
+data = {'timeout': 10, 'repeat': 1, 'strength': strength}
 files = get_file('acts', 'gcc', strength)
 
 r = requests.get(API_URL)
