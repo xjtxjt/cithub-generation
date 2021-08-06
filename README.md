@@ -1,37 +1,48 @@
 # cithub-generation
 
-This project provides a configurable template that can automatically ship standalone covering array generation tools into a docker based web application.
+This project provides a configurable service that can invoke different standalone covering array generation tools to generate covering arrays.
 
 
 
 ## Usage
 
-### Run with embedded tools
+ To deploy the service, first pull the docker image, and then run the container:
 
-Currently, four covering array generation tools are used as the engines of cithub-generation:
+```bash
+docker pull waynedd/cithub-generation
+# run the container with specific hardware constraints
+docker run -d -p [host]:6000 --cpus=2 --memory=16G --name ca-service waynedd/cithub-generation
+```
+
+Next, the generation service can be visited via an HTTP Post method:
+
+```python
+data = {'algorithm': 'acts', 'timeout': 60, 'repeat': 5, 'strength': 2}
+files = {'model': 'example/files/grep-acts.model'}
+
+r = requests.post('http://127.0.0.1:6000/generation', data=data, files=files)
+print(r.json())
+```
+
+Currently, four covering array generation tools are supported:
 
 * `acts`
 * `pict`
 * `casa`
 * `fastca`
 
- To deploy any of them, first pull the docker image:
 
-```bash
-docker pull waynedd/cithub-generation
-```
 
-And then run the container:
-
-```bash
-docker run -d -p [host]:6000 -e CALG=[algorithm] --cpus=2 --memory=16G --name ca-service waynedd/cithub-generation
-```
-
-where `algorithm` indicates the particular tool that provides the generation service. 
+## Add New Tools
 
 
 
-### Run with a new tool
+1. configuration file
+2. function to extract final array size
+
+
+
+
 
 cithub-generation uses a **configuration file** for providing the necessary information of the generation tool, as well as its usage and input/output parameters. Specifially,
 

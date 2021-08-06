@@ -1,0 +1,22 @@
+{
+  "name": "medici",
+  "version": "1.0",
+  "author": "Angelo Gargantini",
+  "link": "https://github.com/garganti/medici",
+  "input": [
+    {
+      "name": "model",
+      "type": "file"
+    },
+    {
+      "name": "constraint",
+      "type": "file"
+    }
+  ],
+  "output": {
+    "name": "output",
+    "type": "file"
+  },
+  "bin": "medici",
+  "run": "medici --casa --m [model] {--c [constraint]} --o [output]"
+}

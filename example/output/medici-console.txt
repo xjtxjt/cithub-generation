@@ -1,0 +1,753 @@
+Casa mode enabled
+Generated tuples for 2-wise with cardinality 628
+time execution tuple generator 2-wise 3ms
+MEDDLY version 0.14.771
+Created domain with 9 variables
+Cardinalita' di partenza 207360
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 0 190080
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 1 172800
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 2 167040
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 3 149760
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 4 132480
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 5 126720
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 6 109440
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 7 92160
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 8 86400
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 9 81600
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 10 78720
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 11 76800
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 12 76800
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 13 74880
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 14 73920
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 15 67200
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 16 64320
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 17 64320
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 18 62400
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 19 62400
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 20 61440
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 21 54720
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 22 51840
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 23 51840
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 24 49920
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 25 49920
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 26 48960
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 27 42240
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 28 39360
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 29 39360
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 30 37440
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 31 37440
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 32 36480
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 33 31680
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 34 28800
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 35 28320
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 36 26760
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 37 26640
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 38 26400
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 39 26280
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 40 26040
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 41 24480
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 42 24000
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 43 23880
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 44 23640
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 45 23520
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 46 23280
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 47 22800
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 48 21240
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 49 21120
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 50 20880
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 51 20760
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 52 20520
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 53 18960
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 54 18480
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 55 18360
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 56 18120
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 57 18000
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 58 17760
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 59 17280
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 60 15720
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 61 15600
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 62 15360
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 63 15240
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 64 15000
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 65 13440
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 66 12960
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 67 12840
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 68 12600
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 69 12480
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 70 12240
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 71 10920
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 72 10560
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 73 10380
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 74 9150
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 75 8940
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 76 8550
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 77 7320
+Cardinalit? del constraint 190080
+Cardinalita ridotta con constraint 78 7140
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 79 6930
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 80 6540
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 81 6060
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 82 5160
+Cardinalit? del constraint 184320
+Cardinalita ridotta con constraint 83 5100
+Cardinalit? del constraint 184320
+Cardinalita ridotta con constraint 84 4270
+Cardinalit? del constraint 184320
+Cardinalita ridotta con constraint 85 4260
+Cardinalit? del constraint 184320
+Cardinalita ridotta con constraint 86 3430
+Cardinalit? del constraint 184320
+Cardinalita ridotta con constraint 87 3370
+Cardinalit? del constraint 184320
+Cardinalita ridotta con constraint 88 3360
+Cardinalit? del constraint 172800
+Cardinalita ridotta con constraint 89 3330
+Cardinalit? del constraint 172800
+Cardinalita ridotta con constraint 90 3320
+Cardinalit? del constraint 186624
+Cardinalita ridotta con constraint 91 2984
+Cardinalit? del constraint 202176
+Cardinalita ridotta con constraint 92 2956
+Cardinalit? del constraint 202176
+Cardinalita ridotta con constraint 93 2908
+Cardinalit? del constraint 193536
+Cardinalita ridotta con constraint 94 2572
+Cardinalit? del constraint 186624
+Cardinalita ridotta con constraint 95 2408
+Cardinalit? del constraint 193536
+Cardinalita ridotta con constraint 96 2402
+Cardinalit? del constraint 193536
+Cardinalita ridotta con constraint 97 2073
+Cardinalit? del constraint 186624
+Cardinalita ridotta con constraint 98 1908
+Cardinalit? del constraint 202176
+Cardinalita ridotta con constraint 99 1894
+Cardinalit? del constraint 202176
+Cardinalita ridotta con constraint 100 1870
+Cardinalit? del constraint 193536
+Cardinalita ridotta con constraint 101 1541
+Cardinalit? del constraint 193536
+Cardinalita ridotta con constraint 102 1535
+Cardinalit? del constraint 193536
+Cardinalita ridotta con constraint 103 1370
+Cardinalit? del constraint 186624
+Cardinalita ridotta con constraint 104 1288
+Cardinalit? del constraint 195840
+Cardinalita ridotta con constraint 105 1067
+Cardinalit? del constraint 206400
+Cardinalita ridotta con constraint 106 981
+Cardinalit? del constraint 206400
+Cardinalita ridotta con constraint 107 903
+Cardinalit? del constraint 206400
+Cardinalita ridotta con constraint 108 902
+Cardinalit? del constraint 206400
+Cardinalita ridotta con constraint 109 901
+Cardinalit? del constraint 198720
+Cardinalita ridotta con constraint 110 856
+Cardinalit? del constraint 206640
+Cardinalita ridotta con constraint 111 841
+Cardinalit? del constraint 206640
+Cardinalita ridotta con constraint 112 823
+Cardinalit? del constraint 206640
+Cardinalita ridotta con constraint 113 823
+Cardinalit? del constraint 206640
+Cardinalita ridotta con constraint 114 823
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 115 778
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 116 738
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 117 693
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 118 653
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 119 608
+Cardinalit? del constraint 200880
+Cardinalita ridotta con constraint 120 568
+Cardinalit? del constraint 204768
+Cardinalita ridotta con constraint 121 548
+Cardinalit? del constraint 204768
+Cardinalita ridotta con constraint 122 528
+Cardinalit? del constraint 204768
+Cardinalita ridotta con constraint 123 508
+Cardinalit? del constraint 204768
+Cardinalita ridotta con constraint 124 488
+Cardinalit? del constraint 204768
+Cardinalita ridotta con constraint 125 468
+Cardinalit? del constraint 204768
+Cardinalita ridotta con constraint 126 448
+Cardinalit? del constraint 200448
+Cardinalita ridotta con constraint 127 443
+Cardinalit? del constraint 200448
+Cardinalita ridotta con constraint 128 438
+Cardinalita finale 438
+Numero constraints di partenza: 129
+Numero constraints frammentati: 1
+Creo lista semplice
+Created forest in this domain with:
+  Relation:	false
+  Range Type:	BOOLEAN
+  Edge Label:	MULTI_TERMINAL
+time execution domain generator12ms
+Controllo preliminare di copertura per le tuple...
+size dopo controllo copribilita 433
+Inizio algoritmo iterativo per generazione casi di test ... tentativo 1
+TIME INTERVAL 3
+Aggiungo tupla: 3-1,4-0, Weight: 3375
+0
+valori:[0,1,3,1,0,0,0,0,2,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 11,16,
+COPERTI: 36 WEIGHT: 61204.5
+Scelto prov
+*SCELTO*
+CARD: 1 36 tuples weight: 61204.5 [ 0 1 3 1 0 0 0 0 2 --> T]
+COPERTI: 36 WEIGHT: 61204.5
+TUPLE RIMANENTI 397
+Aggiungo tupla: 3-1,4-1, Weight: 3174.54
+1
+valori:[2,1,3,1,1,1,1,0,0,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 11,17,
+COPERTI: 30 WEIGHT: 45248.9
+Scelto prov
+*SCELTO*
+CARD: 1 30 tuples weight: 45248.9 [ 2 1 3 1 1 1 1 0 0 --> T]
+COPERTI: 30 WEIGHT: 45248.9
+TUPLE RIMANENTI 367
+Aggiungo tupla: 3-1,4-2, Weight: 2999.82
+2
+valori:[0,1,3,1,2,2,0,0,1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 11,18,
+COPERTI: 21 WEIGHT: 32012.6
+Scelto prov
+*SCELTO*
+CARD: 1 21 tuples weight: 32012.6 [ 0 1 3 1 2 2 0 0 1 --> T]
+COPERTI: 21 WEIGHT: 32012.6
+TUPLE RIMANENTI 346
+Aggiungo tupla: 3-1,4-3, Weight: 2828.43
+3
+valori:[2,1,3,1,3,2,1,0,3,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 11,19,
+COPERTI: 17 WEIGHT: 26129.5
+Scelto prov
+*SCELTO*
+CARD: 1 17 tuples weight: 26129.5 [ 2 1 3 1 3 2 1 0 3 --> T]
+COPERTI: 17 WEIGHT: 26129.5
+TUPLE RIMANENTI 329
+Aggiungo tupla: 3-1,4-4, Weight: 2660.43
+4
+valori:[0,1,3,1,4,0,2,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 11,20,
+COPERTI: 26 WEIGHT: 27815.3
+Scelto prov
+*SCELTO*
+CARD: 1 26 tuples weight: 27815.3 [ 0 1 3 1 4 0 2 1 4 --> T]
+COPERTI: 26 WEIGHT: 27815.3
+TUPLE RIMANENTI 303
+Aggiungo tupla: 3-1,4-5, Weight: 2495.9
+5
+valori:[2,1,3,1,5,2,2,0,0,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 11,21,
+COPERTI: 13 WEIGHT: 15717.4
+Scelto prov
+*SCELTO*
+CARD: 1 13 tuples weight: 15717.4 [ 2 1 3 1 5 2 2 0 0 --> T]
+COPERTI: 13 WEIGHT: 15717.4
+TUPLE RIMANENTI 290
+Aggiungo tupla: 3-2,4-0, Weight: 2138.76
+6
+valori:[0,1,3,2,0,2,2,0,0,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 12,16,
+COPERTI: 12 WEIGHT: 17486.6
+Scelto prov
+*SCELTO*
+CARD: 1 12 tuples weight: 17486.6 [ 0 1 3 2 0 2 2 0 0 --> T]
+COPERTI: 12 WEIGHT: 17486.6
+TUPLE RIMANENTI 278
+Aggiungo tupla: 3-2,4-1, Weight: 2061.92
+7
+valori:[2,-1,3,2,1,1,1,0,3,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 12,17,
+COPERTI: 7 WEIGHT: 10207.7
+Scelto prov
+*SCELTO*
+CARD: 1 7 tuples weight: 10207.7 [ 2 1 3 2 1 1 1 0 3 --> T]
+COPERTI: 7 WEIGHT: 10207.7
+TUPLE RIMANENTI 271
+Aggiungo tupla: 3-2,4-2, Weight: 2023.86
+8
+valori:[-1,1,3,2,2,0,2,-1,2,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 12,18,
+COPERTI: 7 WEIGHT: 10181
+Scelto prov
+*SCELTO*
+CARD: 1 7 tuples weight: 10181 [ 0 1 3 2 2 0 2 0 2 --> T]
+COPERTI: 7 WEIGHT: 10181
+TUPLE RIMANENTI 264
+Aggiungo tupla: 3-2,4-3, Weight: 1948.44
+9
+valori:[2,-1,3,2,3,1,1,0,1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 12,19,
+COPERTI: 7 WEIGHT: 8232.46
+Scelto prov
+*SCELTO*
+CARD: 1 7 tuples weight: 8232.46 [ 2 1 3 2 3 1 1 0 1 --> T]
+COPERTI: 7 WEIGHT: 8232.46
+TUPLE RIMANENTI 257
+Aggiungo tupla: 3-2,4-4, Weight: 1892.51
+10
+valori:[-1,1,3,2,4,2,0,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 12,20,
+COPERTI: 10 WEIGHT: 9709.33
+Scelto prov
+10
+valori:[-1,1,3,2,4,2,0,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 12,20,
+COPERTI: 10 WEIGHT: 9709.33
+*SCELTO*
+CARD: 1 10 tuples weight: 9709.33 [ 0 1 3 2 4 2 0 1 4 --> T]
+COPERTI: 10 WEIGHT: 9709.33
+TUPLE RIMANENTI 247
+Aggiungo tupla: 3-2,4-5, Weight: 1837.12
+11
+valori:[2,1,3,2,5,1,1,-1,3,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 12,21,
+COPERTI: 4 WEIGHT: 5100.48
+Scelto prov
+*SCELTO*
+CARD: 1 4 tuples weight: 5100.48 [ 2 1 3 2 5 1 1 0 3 --> T]
+COPERTI: 4 WEIGHT: 5100.48
+TUPLE RIMANENTI 243
+Aggiungo tupla: 3-3,4-0, Weight: 1516.56
+12
+valori:[0,1,3,3,0,0,0,0,1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 13,16,
+COPERTI: 10 WEIGHT: 10401.7
+Scelto prov
+*SCELTO*
+CARD: 1 10 tuples weight: 10401.7 [ 0 1 3 3 0 0 0 0 1 --> T]
+COPERTI: 10 WEIGHT: 10401.7
+TUPLE RIMANENTI 233
+Aggiungo tupla: 3-3,4-1, Weight: 1448.15
+13
+valori:[2,-1,3,3,1,2,2,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 13,17,
+COPERTI: 12 WEIGHT: 10114.4
+Scelto prov
+*SCELTO*
+CARD: 1 12 tuples weight: 10114.4 [ 2 1 3 3 1 2 2 1 4 --> T]
+COPERTI: 12 WEIGHT: 10114.4
+TUPLE RIMANENTI 221
+Aggiungo tupla: 3-3,4-2, Weight: 1397.54
+14
+valori:[-1,1,3,3,2,0,0,-1,0,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 13,18,
+COPERTI: 5 WEIGHT: 4960.85
+Scelto prov
+*SCELTO*
+CARD: 1 5 tuples weight: 4960.85 [ 0 1 3 3 2 0 0 0 0 --> T]
+COPERTI: 5 WEIGHT: 4960.85
+TUPLE RIMANENTI 216
+Aggiungo tupla: 3-3,4-3, Weight: 1347.53
+15
+valori:[-1,1,3,3,3,1,1,-1,3,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 13,19,
+COPERTI: 4 WEIGHT: 4159.12
+Scelto prov
+*SCELTO*
+CARD: 1 4 tuples weight: 4159.12 [ 2 1 3 3 3 1 1 0 3 --> T]
+COPERTI: 4 WEIGHT: 4159.12
+TUPLE RIMANENTI 212
+Aggiungo tupla: 3-3,4-4, Weight: 1331
+16
+valori:[-1,1,3,3,4,2,2,0,2,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 13,20,
+COPERTI: 5 WEIGHT: 4733.07
+Scelto prov
+*SCELTO*
+CARD: 1 5 tuples weight: 4733.07 [ 0 1 3 3 4 2 2 0 2 --> T]
+COPERTI: 5 WEIGHT: 4733.07
+TUPLE RIMANENTI 207
+Aggiungo tupla: 3-3,4-5, Weight: 1298.14
+17
+valori:[2,1,3,3,5,1,1,-1,1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 13,21,
+COPERTI: 2 WEIGHT: 2151.95
+Scelto prov
+*SCELTO*
+CARD: 1 2 tuples weight: 2151.95 [ 2 1 3 3 5 1 1 0 1 --> T]
+COPERTI: 2 WEIGHT: 2151.95
+TUPLE RIMANENTI 205
+Aggiungo tupla: 3-0,4-0, Weight: 1000
+18
+valori:[0,0,3,0,0,0,0,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 10,16,
+COPERTI: 17 WEIGHT: 8491.24
+Scelto prov
+18
+valori:[0,0,3,0,0,0,0,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 10,16,
+COPERTI: 17 WEIGHT: 8491.24
+*SCELTO*
+CARD: 1 17 tuples weight: 8491.24 [ 0 0 3 0 0 0 0 1 4 --> T]
+COPERTI: 17 WEIGHT: 8491.24
+TUPLE RIMANENTI 188
+Aggiungo tupla: 3-0,4-1, Weight: 955.339
+19
+valori:[2,0,-1,0,1,2,1,0,1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 10,17,
+COPERTI: 13 WEIGHT: 6142.41
+Scelto prov
+*SCELTO*
+CARD: 1 13 tuples weight: 6142.41 [ 2 0 3 0 1 2 1 0 1 --> T]
+COPERTI: 13 WEIGHT: 6142.41
+TUPLE RIMANENTI 175
+Aggiungo tupla: 3-0,4-2, Weight: 896.86
+20
+valori:[0,0,3,0,2,-1,2,0,2,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 10,18,
+COPERTI: 6 WEIGHT: 3166.84
+Scelto prov
+*SCELTO*
+CARD: 1 6 tuples weight: 3166.84 [ 0 0 3 0 2 0 2 0 2 --> T]
+COPERTI: 6 WEIGHT: 3166.84
+TUPLE RIMANENTI 169
+Aggiungo tupla: 3-0,4-3, Weight: 839.624
+21
+valori:[-1,0,3,0,3,1,2,-1,0,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 10,19,
+COPERTI: 9 WEIGHT: 4578.93
+Scelto prov
+*SCELTO*
+CARD: 1 9 tuples weight: 4578.93 [ 2 0 3 0 3 1 2 0 0 --> T]
+COPERTI: 9 WEIGHT: 4578.93
+TUPLE RIMANENTI 160
+Aggiungo tupla: 3-0,4-4, Weight: 811.482
+22
+valori:[0,0,3,0,4,-1,2,0,0,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 10,20,
+COPERTI: 3 WEIGHT: 1938.79
+Scelto prov
+*SCELTO*
+CARD: 1 3 tuples weight: 1938.79 [ 0 0 3 0 4 0 2 0 0 --> T]
+COPERTI: 3 WEIGHT: 1938.79
+TUPLE RIMANENTI 157
+Aggiungo tupla: 3-0,4-5, Weight: 769.873
+23
+valori:[2,0,3,0,5,-1,1,0,3,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 10,21,
+COPERTI: 4 WEIGHT: 2001.61
+Scelto prov
+*SCELTO*
+CARD: 1 4 tuples weight: 2001.61 [ 2 0 3 0 5 1 1 0 3 --> T]
+COPERTI: 4 WEIGHT: 2001.61
+TUPLE RIMANENTI 153
+Aggiungo tupla: 3-5,4-7, Weight: 396.817
+24
+valori:[1,2,3,5,7,3,2,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 15,23,
+COPERTI: 30 WEIGHT: 7651.79
+Scelto prov
+*SCELTO*
+CARD: 1 30 tuples weight: 7651.79 [ 1 2 3 5 7 3 2 1 4 --> T]
+COPERTI: 30 WEIGHT: 7651.79
+TUPLE RIMANENTI 123
+Aggiungo tupla: 3-0,4-6, Weight: 396.817
+25
+valori:[2,0,3,0,6,3,1,0,3,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 10,22,
+COPERTI: 14 WEIGHT: 2666.93
+Scelto prov
+25
+valori:[2,0,3,0,6,3,1,0,3,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 10,22,
+COPERTI: 14 WEIGHT: 2666.93
+*SCELTO*
+CARD: 1 14 tuples weight: 2666.93 [ 2 0 3 0 6 3 1 0 3 --> T]
+COPERTI: 14 WEIGHT: 2666.93
+TUPLE RIMANENTI 109
+Aggiungo tupla: 3-4,4-0, Weight: 262.528
+26
+valori:[0,0,3,4,0,0,2,0,2,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 14,16,
+COPERTI: 8 WEIGHT: 1279.21
+Scelto prov
+26
+valori:[0,0,3,4,0,0,2,0,0,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 14,16,
+COPERTI: 8 WEIGHT: 1279.21
+*SCELTO*
+CARD: 1 8 tuples weight: 1279.21 [ 0 0 3 4 0 0 2 0 2 --> T]
+COPERTI: 8 WEIGHT: 1279.21
+TUPLE RIMANENTI 101
+Aggiungo tupla: 3-4,4-1, Weight: 252.982
+27
+valori:[2,0,-1,4,1,2,1,0,0,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 14,17,
+COPERTI: 5 WEIGHT: 733.145
+Scelto prov
+*SCELTO*
+CARD: 1 5 tuples weight: 733.145 [ 2 0 3 4 1 2 1 0 0 --> T]
+COPERTI: 5 WEIGHT: 733.145
+TUPLE RIMANENTI 96
+Aggiungo tupla: 3-4,4-2, Weight: 225.062
+28
+valori:[0,0,-1,4,2,-1,0,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 14,18,
+COPERTI: 6 WEIGHT: 916.029
+Scelto prov
+*SCELTO*
+CARD: 1 6 tuples weight: 916.029 [ 0 0 3 4 2 0 0 1 4 --> T]
+COPERTI: 6 WEIGHT: 916.029
+TUPLE RIMANENTI 90
+Aggiungo tupla: 3-4,4-3, Weight: 198.252
+29
+valori:[2,0,-1,4,3,1,1,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 14,19,
+COPERTI: 8 WEIGHT: 1040
+Scelto prov
+*SCELTO*
+CARD: 1 8 tuples weight: 1040 [ 2 0 3 4 3 1 1 1 4 --> T]
+COPERTI: 8 WEIGHT: 1040
+TUPLE RIMANENTI 82
+Aggiungo tupla: 3-4,4-4, Weight: 181.019
+30
+valori:[0,0,-1,4,4,-1,0,0,1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 14,20,
+COPERTI: 3 WEIGHT: 458.273
+Scelto prov
+*SCELTO*
+CARD: 1 3 tuples weight: 458.273 [ 0 0 3 4 4 0 0 0 1 --> T]
+COPERTI: 3 WEIGHT: 458.273
+TUPLE RIMANENTI 79
+Aggiungo tupla: 3-4,4-5, Weight: 156.17
+31
+valori:[2,0,-1,4,5,-1,2,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 14,21,
+COPERTI: 3 WEIGHT: 445.487
+Scelto prov
+*SCELTO*
+CARD: 1 3 tuples weight: 445.487 [ 2 0 3 4 5 1 2 1 4 --> T]
+COPERTI: 3 WEIGHT: 445.487
+TUPLE RIMANENTI 76
+Aggiungo tupla: 3-4,4-6, Weight: 82.8191
+32
+valori:[0,0,2,4,6,3,2,0,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 14,22,
+COPERTI: 15 WEIGHT: 2128.25
+Scelto prov
+32
+valori:[0,0,0,4,6,3,2,0,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,4, ParametriCasa: 14,22,
+COPERTI: 15 WEIGHT: 2128.25
+*SCELTO*
+CARD: 1 15 tuples weight: 2128.25 [ 0 0 2 4 6 3 2 0 4 --> T]
+COPERTI: 15 WEIGHT: 2128.25
+TUPLE RIMANENTI 61
+Aggiungo tupla: 4-7,8-3, Weight: 52.3832
+33
+valori:[2,1,1,5,7,3,1,0,3,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 4,8, ParametriCasa: 23,36,
+COPERTI: 19 WEIGHT: 1347.8
+Scelto prov
+*SCELTO*
+CARD: 1 19 tuples weight: 1347.8 [ 2 1 1 5 7 3 1 0 3 --> T]
+COPERTI: 19 WEIGHT: 1347.8
+TUPLE RIMANENTI 42
+Aggiungo tupla: 4-7,8-1, Weight: 36.4829
+34
+valori:[0,-1,1,5,7,3,0,-1,1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 4,8, ParametriCasa: 23,34,
+COPERTI: 11 WEIGHT: 541.214
+Scelto prov
+*SCELTO*
+CARD: 1 11 tuples weight: 541.214 [ 0 1 1 5 7 3 0 0 1 --> T]
+COPERTI: 11 WEIGHT: 541.214
+TUPLE RIMANENTI 31
+Aggiungo tupla: 4-6,8-1, Weight: 14.6969
+35
+valori:[-1,0,2,4,6,-1,0,-1,1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 4,8, ParametriCasa: 22,34,
+COPERTI: 4 WEIGHT: 198.139
+Scelto prov
+*SCELTO*
+CARD: 1 4 tuples weight: 198.139 [ 0 0 2 4 6 3 0 0 1 --> T]
+COPERTI: 4 WEIGHT: 198.139
+TUPLE RIMANENTI 27
+Aggiungo tupla: 3-4,8-3, Weight: 8
+36
+valori:[2,-1,2,4,6,-1,1,-1,3,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 3,8, ParametriCasa: 14,36,
+COPERTI: 4 WEIGHT: 263.924
+Scelto prov
+*SCELTO*
+CARD: 1 4 tuples weight: 263.924 [ 2 0 2 4 6 3 1 0 3 --> T]
+COPERTI: 4 WEIGHT: 263.924
+TUPLE RIMANENTI 23
+Aggiungo tupla: 2-0,4-6, Weight: 11.1803
+37
+valori:[2,0,0,4,6,3,1,0,1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 2,4, ParametriCasa: 6,22,
+COPERTI: 8 WEIGHT: 135.422
+Scelto prov
+37
+valori:[0,0,0,4,6,3,0,0,1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 2,4, ParametriCasa: 6,22,
+COPERTI: 8 WEIGHT: 135.422
+*SCELTO*
+CARD: 1 8 tuples weight: 135.422 [ 2 0 0 4 6 3 1 0 1 --> T]
+COPERTI: 8 WEIGHT: 135.422
+TUPLE RIMANENTI 15
+Aggiungo tupla: 0-1,4-6, Weight: 2.82843
+38
+valori:[1,0,-1,4,6,-1,2,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 0,4, ParametriCasa: 1,22,
+COPERTI: 4 WEIGHT: 11.853
+Scelto prov
+*SCELTO*
+CARD: 1 4 tuples weight: 11.853 [ 1 0 3 4 6 3 2 1 4 --> T]
+COPERTI: 4 WEIGHT: 11.853
+TUPLE RIMANENTI 11
+Aggiungo tupla: 2-0,8-3, Weight: 14.6969
+39
+valori:[-1,-1,0,-1,-1,-1,-1,-1,3,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 2,8, ParametriCasa: 6,36,
+COPERTI: 1 WEIGHT: 14.6969
+Scelto prov
+*SCELTO*
+CARD: 1 1 tuples weight: 14.6969 [ 2 0 0 4 6 3 1 0 3 --> T]
+COPERTI: 1 WEIGHT: 14.6969
+TUPLE RIMANENTI 10
+Aggiungo tupla: 2-0,8-4, Weight: 11.1803
+40
+valori:[0,-1,0,-1,-1,-1,2,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 2,8, ParametriCasa: 6,37,
+COPERTI: 4 WEIGHT: 51.7546
+Scelto prov
+40
+valori:[0,-1,0,-1,-1,-1,0,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 2,8, ParametriCasa: 6,37,
+COPERTI: 4 WEIGHT: 51.7546
+*SCELTO*
+CARD: 1 4 tuples weight: 51.7546 [ 0 0 0 4 6 3 2 1 4 --> T]
+COPERTI: 4 WEIGHT: 51.7546
+TUPLE RIMANENTI 6
+Aggiungo tupla: 2-1,8-4, Weight: 5.19615
+41
+valori:[-1,1,1,-1,-1,-1,2,1,4,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 2,8, ParametriCasa: 7,37,
+COPERTI: 3 WEIGHT: 15.5885
+Scelto prov
+*SCELTO*
+CARD: 1 3 tuples weight: 15.5885 [ 0 1 1 5 7 3 2 1 4 --> T]
+COPERTI: 3 WEIGHT: 15.5885
+TUPLE RIMANENTI 3
+Aggiungo tupla: 2-0,6-0, Weight: 2.82843
+42
+valori:[-1,-1,0,-1,-1,-1,0,-1,-1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 2,6, ParametriCasa: 6,28,
+COPERTI: 1 WEIGHT: 2.82843
+Scelto prov
+*SCELTO*
+CARD: 1 1 tuples weight: 2.82843 [ 0 0 0 4 6 3 0 0 1 --> T]
+COPERTI: 1 WEIGHT: 2.82843
+TUPLE RIMANENTI 2
+Aggiungo tupla: 2-2,7-1, Weight: 1
+43
+valori:[-1,-1,2,-1,-1,-1,-1,1,-1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 2,7, ParametriCasa: 8,32,
+COPERTI: 1 WEIGHT: 1
+Scelto prov
+*SCELTO*
+CARD: 1 1 tuples weight: 1 [ 0 0 2 4 6 3 0 1 4 --> T]
+COPERTI: 1 WEIGHT: 1
+TUPLE RIMANENTI 1
+Aggiungo tupla: 0-1,1-1, Weight: 1
+44
+valori:[1,1,-1,-1,-1,-1,-1,-1,-1,] 0x7ffef1436cc0] stato: 0 weight: 0 compClass: 0 parametri: 0,1, ParametriCasa: 1,4,
+COPERTI: 1 WEIGHT: 1
+Scelto prov
+*SCELTO*
+CARD: 1 1 tuples weight: 1 [ 1 1 3 5 7 3 2 1 4 --> T]
+COPERTI: 1 WEIGHT: 1
+TUPLE RIMANENTI 0
+***********************Elenco nodi risultati***************************************
+CARD: 1 36 tuples weight: 61204.5 [ 0 1 3 1 0 0 0 0 2 --> T]
+CARD: 1 30 tuples weight: 45248.9 [ 2 1 3 1 1 1 1 0 0 --> T]
+CARD: 1 21 tuples weight: 32012.6 [ 0 1 3 1 2 2 0 0 1 --> T]
+CARD: 1 17 tuples weight: 26129.5 [ 2 1 3 1 3 2 1 0 3 --> T]
+CARD: 1 26 tuples weight: 27815.3 [ 0 1 3 1 4 0 2 1 4 --> T]
+CARD: 1 13 tuples weight: 15717.4 [ 2 1 3 1 5 2 2 0 0 --> T]
+CARD: 1 12 tuples weight: 17486.6 [ 0 1 3 2 0 2 2 0 0 --> T]
+CARD: 1 7 tuples weight: 10207.7 [ 2 1 3 2 1 1 1 0 3 --> T]
+CARD: 1 7 tuples weight: 10181 [ 0 1 3 2 2 0 2 0 2 --> T]
+CARD: 1 7 tuples weight: 8232.46 [ 2 1 3 2 3 1 1 0 1 --> T]
+CARD: 1 10 tuples weight: 9709.33 [ 0 1 3 2 4 2 0 1 4 --> T]
+CARD: 1 4 tuples weight: 5100.48 [ 2 1 3 2 5 1 1 0 3 --> T]
+CARD: 1 10 tuples weight: 10401.7 [ 0 1 3 3 0 0 0 0 1 --> T]
+CARD: 1 12 tuples weight: 10114.4 [ 2 1 3 3 1 2 2 1 4 --> T]
+CARD: 1 5 tuples weight: 4960.85 [ 0 1 3 3 2 0 0 0 0 --> T]
+CARD: 1 4 tuples weight: 4159.12 [ 2 1 3 3 3 1 1 0 3 --> T]
+CARD: 1 5 tuples weight: 4733.07 [ 0 1 3 3 4 2 2 0 2 --> T]
+CARD: 1 2 tuples weight: 2151.95 [ 2 1 3 3 5 1 1 0 1 --> T]
+CARD: 1 17 tuples weight: 8491.24 [ 0 0 3 0 0 0 0 1 4 --> T]
+CARD: 1 13 tuples weight: 6142.41 [ 2 0 3 0 1 2 1 0 1 --> T]
+CARD: 1 6 tuples weight: 3166.84 [ 0 0 3 0 2 0 2 0 2 --> T]
+CARD: 1 9 tuples weight: 4578.93 [ 2 0 3 0 3 1 2 0 0 --> T]
+CARD: 1 3 tuples weight: 1938.79 [ 0 0 3 0 4 0 2 0 0 --> T]
+CARD: 1 4 tuples weight: 2001.61 [ 2 0 3 0 5 1 1 0 3 --> T]
+CARD: 1 30 tuples weight: 7651.79 [ 1 2 3 5 7 3 2 1 4 --> T]
+CARD: 1 14 tuples weight: 2666.93 [ 2 0 3 0 6 3 1 0 3 --> T]
+CARD: 1 8 tuples weight: 1279.21 [ 0 0 3 4 0 0 2 0 2 --> T]
+CARD: 1 5 tuples weight: 733.145 [ 2 0 3 4 1 2 1 0 0 --> T]
+CARD: 1 6 tuples weight: 916.029 [ 0 0 3 4 2 0 0 1 4 --> T]
+CARD: 1 8 tuples weight: 1040 [ 2 0 3 4 3 1 1 1 4 --> T]
+CARD: 1 3 tuples weight: 458.273 [ 0 0 3 4 4 0 0 0 1 --> T]
+CARD: 1 3 tuples weight: 445.487 [ 2 0 3 4 5 1 2 1 4 --> T]
+CARD: 1 15 tuples weight: 2128.25 [ 0 0 2 4 6 3 2 0 4 --> T]
+CARD: 1 19 tuples weight: 1347.8 [ 2 1 1 5 7 3 1 0 3 --> T]
+CARD: 1 11 tuples weight: 541.214 [ 0 1 1 5 7 3 0 0 1 --> T]
+CARD: 1 4 tuples weight: 198.139 [ 0 0 2 4 6 3 0 0 1 --> T]
+CARD: 1 4 tuples weight: 263.924 [ 2 0 2 4 6 3 1 0 3 --> T]
+CARD: 1 8 tuples weight: 135.422 [ 2 0 0 4 6 3 1 0 1 --> T]
+CARD: 1 4 tuples weight: 11.853 [ 1 0 3 4 6 3 2 1 4 --> T]
+CARD: 1 1 tuples weight: 14.6969 [ 2 0 0 4 6 3 1 0 3 --> T]
+CARD: 1 4 tuples weight: 51.7546 [ 0 0 0 4 6 3 2 1 4 --> T]
+CARD: 1 3 tuples weight: 15.5885 [ 0 1 1 5 7 3 2 1 4 --> T]
+CARD: 1 1 tuples weight: 2.82843 [ 0 0 0 4 6 3 0 0 1 --> T]
+CARD: 1 1 tuples weight: 1 [ 0 0 2 4 6 3 0 1 4 --> T]
+CARD: 1 1 tuples weight: 1 [ 1 1 3 5 7 3 2 1 4 --> T]
+Tuple coperte: 433 Tuple da coprire: 0 Tuple non copribili: 195
+Ottenuti: 45 mdd
+Tempo per ordinamenti: 3ms
+time execution script 357ms

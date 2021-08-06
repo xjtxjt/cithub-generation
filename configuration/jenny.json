@@ -1,0 +1,18 @@
+{
+  "name": "Jenny",
+  "version": "2005",
+  "author": "",
+  "link": "https://burtleburtle.net/bob/math/jenny.html",
+  "input": [
+    {
+      "name": "model_plain",
+      "type": "string"
+    }
+  ],
+  "output": {
+    "name": "output",
+    "type": "console"
+  },
+  "bin": "jenny",
+  "run": "jenny [model_plain]"
+}

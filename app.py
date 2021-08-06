@@ -10,62 +10,99 @@ from generation import Generation
 
 app = Flask(__name__)
 
+# set up
+TOOLS_SUPPORTED = ['acts', 'pict', 'casa', 'fastca', 'jenny', 'medici']
+BIN_DIR = os.environ.get('BIN')
+TEMP_DIR = 'tmp'
+
+if BIN_DIR is None:
+  print('[ERROR] The bin directory should be set.')
+  exit(-1)
+
 # logging
 logging.basicConfig(filename='log/access.log', level=logging.INFO)
 
-# set up customised configurations
-TEMP = 'tmp'
-CONFIGURATION_FILE = 'configuration/{}.json'.format(os.environ.get("CALG"))
-configuration = json.load(fp=open(CONFIGURATION_FILE))
-for key, value in configuration.items():
-  app.config[key] = value
+# load configurations
+CONFIGURATION = {}
+for each_tool in TOOLS_SUPPORTED:
+  CONFIGURATION[each_tool] = {}
+  conf = json.load(fp=open('configuration/{}.json'.format(each_tool)))
+  for key, value in conf.items():
+    CONFIGURATION[each_tool][key] = value
 
 
-def parameter_process(file_prefix):
+def parameter_process(config, form_data, file_data, file_prefix):
   """
-  Handling request parameters based on the configuration file, and upload
-  necessary files.
+  Handling request parameters based on the configuration file, and upload necessary files.
+  :param config : the configuration of specific algorithm
+  :param form_data : the form data of the request
+  :param file_data : the file data of the request
+  :param file_prefix : the prefix of the temporary file
   """
-  parameters = {}
-  for each in app.config['input']:
+  parameters = {
+    'algorithm': form_data['algorithm'],
+    'bin': config['bin'],
+    'run': config['run'],
+    'timeout': form_data['timeout'],
+    'repeat': form_data['repeat']
+  }
+  
+  # input files
+  for each in config['input']:
     # determine whether the post request contains the required files,
     # and save these files in the data directory
     if each['type'] == 'file':
-      if each['name'] in request.files:
-        parameters[each['name']] = os.path.join(TEMP, '{}.{}'.format(file_prefix, each['name']))
-        file = request.files[each['name']]
+      if each['name'] in file_data:
+        parameters[each['name']] = os.path.join(TEMP_DIR, '{}.{}'.format(file_prefix, each['name']))
+        file = file_data[each['name']]
         file.save(parameters[each['name']])
     # append other parameters
     else:
-      parameters[each['name']] = request.form[each['name']]
-  # output
-  parameters['output'] = os.path.join(TEMP, file_prefix + '.out')
-  parameters['console'] = os.path.join(TEMP, file_prefix + '.console')
-  parameters['output_type'] = app.config['output']['type']
+      parameters[each['name']] = form_data[each['name']]
+  
+  # output files
+  parameters['output'] = os.path.join(TEMP_DIR, file_prefix + '.out')
+  parameters['console'] = os.path.join(TEMP_DIR, file_prefix + '.console')
+  parameters['output_type'] = config['output']['type']
   return parameters
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
-  return configuration
+  return {'tools supported': TOOLS_SUPPORTED}
+
+
+@app.route('/tool', methods=['GET'])
+def tool_information():
+  tool = request.args.get('name')
+  return CONFIGURATION[tool]
 
 
 @app.route('/generation', methods=['POST'])
 def generation():
   """
-  The generation service.
+  The main generation service, which require the following parameters (with examples):
+  * data = {'algorithm': 'acts', 'timeout': 60, 'repeat': 3, 'strength': 2}
+  * files = {'model': model_file, 'constraint': constraint_file}
   """
   if request.method == 'POST':
+    # configuration of specific tool
+    config = CONFIGURATION[request.form['algorithm']]
+    
+    # prefix of temporary file
     stamp = ''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
     prefix = datetime.now().isoformat(timespec='seconds') + '-' + stamp
+    
     # pre-process of parameters
-    parameters = parameter_process(prefix)
-    # invoke the generation service
-    service = Generation(parameters, app.logger)
+    parameters = parameter_process(config, request.form, request.files, prefix)
+    app.logger.info('> ------------------------------------------------------------------ <')
     app.logger.info(parameters)
-    result = service.generation(app.config['bin'], app.config['run'], app.config['get_size'])
+
+    # invoke the generation service
+    service = Generation(parameters, app.logger, BIN_DIR)
+    result = service.generation()
     return {'status': 'success', 'result': result}
-  
+
 
 @app.route('/tmp/<path:path>')
 def send_file(path):
@@ -73,5 +110,4 @@ def send_file(path):
 
 
 if __name__ == '__main__':
-  app.logger.info('**** Run ' + os.environ.get("CALG") + ' generation service ****')
   app.run(host="0.0.0.0")

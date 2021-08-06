@@ -11,14 +11,6 @@
     {
       "name": "strength",
       "type": "number"
-    },
-    {
-      "name": "timeout",
-      "type": "number"
-    },
-    {
-      "name": "repeat",
-      "type": "number"
     }
   ],
   "output": {
