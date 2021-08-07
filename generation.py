@@ -78,7 +78,7 @@ class Generation:
       cd = RUN.replace('[SEED]', str(randrange(999999)))
       self.logger.info('> RUN:  ' + cd)
       
-      console_out = open(console_file, 'w')
+      console_out = open(console_file, 'wb')
       start = datetime.now()
       try:
         subprocess.run(cd.split(' '),
@@ -135,9 +135,10 @@ class Generation:
         best_size = size
         result['best']['size'] = size
         result['best']['time'] = time
-        with open(console_file, 'r') as f:
+        encoding = 'ISO-8859-1' if self.parameters['algorithm'] == 'medici' else 'utf-8'
+        with open(console_file, 'r', encoding=encoding) as f:
           best_console = f.read()
-        with open(array_file, 'r') as f:
+        with open(array_file, 'r', encoding=encoding) as f:
           best_content = f.read()
     
     # end the for loop, all repetitions are finished
@@ -145,10 +146,10 @@ class Generation:
     
     # save the final best array files
     if best_console != '':
-      with open(console_file, 'w') as f:
+      with open(console_file, 'w', encoding='utf-8') as f:
         f.writelines(best_console)
     if best_content != '':
-      with open(array_file, 'w') as f:
+      with open(array_file, 'w', encoding='utf-8') as f:
         f.write(best_content)
     result['best']['array'] = array_file
     result['best']['console'] = console_file

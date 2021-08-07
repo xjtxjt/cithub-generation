@@ -10,12 +10,17 @@
 
 ```bash
 docker pull waynedd/cithub-generation:1.8
-docker run -d -p [port]:5000 -e BIN=[bin_dir] --cpus=2 --memory=16G --name [service_name] waynedd/cithub-generation:1.8
+```
+
+```bash
+docker run -d -p [port]:5000 --cpus=2 --memory=16G --name [service_name] waynedd/cithub-generation:1.8
 ```
 
 Once the service is ready, the specific generation service can be visited via an HTTP Post method:
 
 ```python
+import requests
+
 data = {'algorithm': 'acts', 'timeout': 60, 'repeat': 5, 'strength': 2}
 files = {'model': 'example/files/grep-acts.model'}
 
@@ -43,7 +48,7 @@ In order to add a new covering array generation too into the service, just 1) pr
 
 #### Configuration File
 
-`cithub-generation` uses a configuration file (in JSON format) to describe the necessary information of running each spesific tool. For example, the following code block gives the configuration file of ACTS (namely, `configuration/acts.json`):
+`cithub-generation` uses a configuration file (in JSON format) to describe the necessary information of running each spesific tool. For example, the following code block gives the configuration file of ACTS (`configuration/acts.json`):
 
 ```json
 {
@@ -84,7 +89,7 @@ Specifially,
 
 Once the execution of the tool finishes,  `cithub-generation` will call the `array_size()` function of the `Extraction` class to extract the exact size of the covering array generated (see `extraction.py`). It is recommended to extract the size from the `console` file generated (stdout), because the tool might run out of time, where no array file is produced.
 
-For example, the following gives the extraction fuction of ACTS.
+For example, the following gives the extraction function of ACTS.
 
 ```python
 @staticmethod
@@ -111,5 +116,5 @@ docker push username/cithub-generation:1.x
 
 #### Additional Notes
 
-The current version of `cithub-generation` is especially desined for packaging an exisitng command-line tool. If you wish to package an algorithm under developement, it is recommended to design and implement it as a native docker-based web service.
+The current version of `cithub-generation` is especially designed for packaging an existing command-line tool. If you wish to package an algorithm under development, it is recommended to design and implement it as a native docker-based web service.
 

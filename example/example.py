@@ -2,7 +2,7 @@ import requests
 import os
 
 # An example of using the service
-API_URL = 'http://127.0.0.1:5000'
+API_URL = 'http://127.0.0.1:6000'
 FOLDER = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -25,9 +25,9 @@ def read_model_files(alg, name, tway):
 
 # required parameters
 strength = 2
-algorithm = 'acts'
+algorithm = 'pict'
 files, model_plain = read_model_files(algorithm, 'grep', strength)
-data = {'algorithm': algorithm, 'timeout': 30, 'repeat': 2, 'strength': 2, 'model_plain': model_plain}
+data = {'algorithm': algorithm, 'timeout': 60, 'repeat': 2, 'strength': 2, 'model_plain': model_plain}
 
 r = requests.get(API_URL)
 print(r.json())

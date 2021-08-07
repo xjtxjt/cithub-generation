@@ -92,7 +92,7 @@ class Extraction:
 
 
 if __name__ == '__main__':
-  alg = 'tcases'
+  alg = 'medici'
   ext = Extraction(alg)
   print(ext.array_size('example/output/{}-console.txt'.format(alg)))
 
