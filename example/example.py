@@ -2,7 +2,7 @@ import requests
 import os
 
 # An example of using the service
-API_URL = 'http://127.0.0.1:6000'
+API_URL = 'http://127.0.0.1:5000'
 FOLDER = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -25,24 +25,25 @@ def read_model_files(alg, name, tway):
 
 # required parameters
 strength = 2
-algorithm = 'pict'
-files, model_plain = read_model_files(algorithm, 'grep', strength)
-data = {'algorithm': algorithm, 'timeout': 60, 'repeat': 2, 'strength': 2, 'model_plain': model_plain}
+algorithm = 'medici'
+files, model_plain = read_model_files(algorithm, 'aircraft', strength)
+data = {'algorithm': algorithm, 'timeout': 20, 'repeat': 2, 'strength': strength, 'model_plain': model_plain}
 
 r = requests.get(API_URL)
 print(r.json())
 
 r = requests.post(API_URL + '/generation', data=data, files=files)
-jn = r.json()
-print(jn)
+if r.status_code == 200:
+  jn = r.json()
+  print(jn)
 
-# get files
-print('\n---------------- array ----------------')
-if jn['result']['best']['array'] != '':
-  r = requests.get(API_URL + '/' + jn['result']['best']['array'])
-  print(bytes.decode(r.content))
-
-print('\n---------------- console ----------------')
-if jn['result']['best']['console'] != '':
-  r = requests.get(API_URL + '/' + jn['result']['best']['console'])
-  print(bytes.decode(r.content))
+  # get files
+  print('\n---------------- array ----------------')
+  if jn['result']['best']['array'] != '':
+    r = requests.get(API_URL + '/' + jn['result']['best']['array'])
+    print(bytes.decode(r.content))
+  
+  print('\n---------------- console ----------------')
+  if jn['result']['best']['console'] != '':
+    r = requests.get(API_URL + '/' + jn['result']['best']['console'])
+    print(bytes.decode(r.content))

@@ -72,13 +72,20 @@ class Generation:
     best_console = ''
     best_content = ''
     
-    extract = Extraction(self.parameters['algorithm'])
     for i in range(int(self.parameters['repeat'])):
       # randomise seed for some algorithms
       cd = RUN.replace('[SEED]', str(randrange(999999)))
-      self.logger.info('> RUN:  ' + cd)
+      # if the argument list is too long (e.g., jenny)
+      if len(cd) > 131072:
+        self.logger.info('> Error: Argument list too long.')
+        with open(console_file, 'w') as file:
+          file.write('Error: Argument list too long.\n')
+        return {'size': [-2], 'time': [-2], 'best': {'size': -2, 'time': -2, 'array': '', 'console': console_file}}
       
+      self.logger.info('> RUN: ' + cd)
       console_out = open(console_file, 'wb')
+      
+      # execute the command
       start = datetime.now()
       try:
         subprocess.run(cd.split(' '),
@@ -89,19 +96,21 @@ class Generation:
       
       end = datetime.now()
       time = (end - start).seconds
+      console_out.flush()
 
       # run post-process command, if there exists
       if CLEAN is not None:
         self.logger.info('> RUN:  ' + CLEAN)
         subprocess.run(CLEAN)
-      
-      # if there is no specified output file, then use console as the output
-      console_out.flush()
-      if self.parameters['output_type'] == 'console':
+        
+      # if there is no specified output file, or the output file is not produced (due to timeout),
+      # then use console as the output
+      if self.parameters['output_type'] == 'console' or not os.path.isfile(array_file):
         copyfile(console_file, array_file)
       console_out.close()
       
       # get size from the console file
+      extract = Extraction(self.parameters['algorithm'])
       out = extract.array_size(console_file)
       # r = subprocess.run(GET_SIZE, shell=True, capture_output=True)
       # out = bytes.decode(r.stdout).strip()
@@ -170,4 +179,3 @@ class Generation:
         os.remove(tmp_file)
       if os.path.isfile('tcases.log'):
         os.remove('tcases.log')
-

@@ -9,7 +9,7 @@
  To deploy the service, first pull the docker image, and then run the container (with specific hardware constraints):
 
 ```bash
-docker pull waynedd/cithub-generation:1.8
+docker pull waynedd/cithub-generation:1.7
 ```
 
 ```bash
