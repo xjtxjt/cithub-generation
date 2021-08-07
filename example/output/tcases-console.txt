@@ -1,0 +1,12 @@
+22:29:39.036 INFO  org.cornutum.tcases.Tcases - Tcases 3.7.1 (2021-07-27)
+22:29:39.040 INFO  org.cornutum.tcases.Tcases - Reading system input definition=./example/files/flex-tcases.model
+22:29:39.267 INFO  org.cornutum.tcases.Tcases - Reading generator definition=./example/files/flex-tcases-Generators.json
+22:29:39.287 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Preparing constraint info
+22:29:39.291 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Generating test cases
+22:29:39.298 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Extended 0 valid base test cases
+22:29:39.458 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Created 29 valid test cases
+22:29:39.458 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Extended 0 base failure test cases
+22:29:39.458 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Created 0 failure test cases
+22:29:39.464 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Completed 29 test cases
+22:29:39.465 INFO  org.cornutum.tcases.Tcases - Updating test definition file=tmp/out.txt
+22:29:39.601 INFO  org.cornutum.tcases.Tcases - Updating generator definition=./example/files/flex-tcases-Generators.json

@@ -22,7 +22,7 @@ class Generation:
     binary = self.parameters['bin']
     run = self.parameters['run']
     
-    # path of executable binary
+    # add path of executable binary
     run = run.replace(binary, os.path.join(self.base, binary))
     
     # whether there is a constraint file
@@ -36,10 +36,22 @@ class Generation:
     for par in self.parameters.keys():
       run = run.replace('[{}]'.format(par), self.parameters[par])
     
+    # SPECIAL TREATMENT
+    # tcases: remove 'tmp/' from the output file (the first occurrence)
+    if self.parameters['algorithm'] == 'tcases':
+      run = run.replace('tmp/', '', 1)
+    
     # the command will output the best array size constructed most recently
     # get_size = get_size.replace('[console]', self.parameters['console'])
-    return run
-
+    
+    # the clean command
+    if 'clean' in self.parameters.keys():
+      clean = os.path.join(self.base, self.parameters['clean'])
+    else:
+      clean = None
+    
+    return run, clean
+  
   def generation(self):
     """
     Run the specified command to invoke the generation process.
@@ -49,8 +61,8 @@ class Generation:
     array_file = self.parameters['output']
     console_file = self.parameters['console']
     
-    # the run command
-    RUN = self.process_command()
+    # the run & clean command
+    RUN, CLEAN = self.process_command()
     self.logger.info('> TIMEOUT = ' + self.parameters['timeout'] + ', repeat = ' + self.parameters['repeat'])
     # self.logger.info('> GET_SIZE: ' + GET_SIZE)
 
@@ -73,11 +85,16 @@ class Generation:
                        timeout=int(self.parameters['timeout']),
                        stdout=console_out)
       except subprocess.TimeoutExpired:
-        self.logger.info('> Timeout expired at iteration {}'.format(i))
+        self.logger.info('> Time expired at iteration {}'.format(i))
       
       end = datetime.now()
       time = (end - start).seconds
 
+      # run post-process command, if there exists
+      if CLEAN is not None:
+        self.logger.info('> RUN:  ' + CLEAN)
+        subprocess.run(CLEAN)
+      
       # if there is no specified output file, then use console as the output
       console_out.flush()
       if self.parameters['output_type'] == 'console':
@@ -93,19 +110,22 @@ class Generation:
       if out is None or out <= 0:
         # 1) unable to execute
         if out == -2:
-          self.logger.info('> Unable to execute, time = ' + str(time))
+          self.logger.info('> Result: Unable to execute, time spent = ' + str(time))
+          self.delete_files()
           return {'size': [-2], 'time': [-2], 'best': {'size': -2, 'time': -2, 'array': '', 'console': console_file}}
         # 2) terminate before timeout, runs out of memory
         #    in this case, only one repetition is needed
         elif time < int(self.parameters['timeout']) - 10:
-          self.logger.info('> Run out of memory, time = ' + str(time))
+          self.logger.info('> Result: Run out of memory, time spent = ' + str(time))
+          self.delete_files()
           return {'size': [-9], 'time': [-9], 'best': {'size': -9, 'time': -9, 'array': '', 'console': console_file}}
         # 3) runs out of time
         else:
           result['size'].append(-1)
           result['time'].append(-1)
           continue
-      # find an array size
+      
+      # find array size
       size = int(out)
       result['size'].append(size)
       result['time'].append(time)
@@ -120,6 +140,9 @@ class Generation:
         with open(array_file, 'r') as f:
           best_content = f.read()
     
+    # end the for loop, all repetitions are finished
+    self.delete_files()
+    
     # save the final best array files
     if best_console != '':
       with open(console_file, 'w') as f:
@@ -127,13 +150,23 @@ class Generation:
     if best_content != '':
       with open(array_file, 'w') as f:
         f.write(best_content)
-        
     result['best']['array'] = array_file
     result['best']['console'] = console_file
     
-    # delete model and constraints files uploaded
+    return result
+  
+  def delete_files(self):
+    # delete test model files
     for e in ['model', 'constraint']:
       if e in self.parameters:
         os.remove(self.parameters[e])
-    
-    return result
+
+    # SPECIAL TREATMENT
+    # tcases: remove files 'tmp/XXX-Generators.json', 'tcases.log'
+    if self.parameters['algorithm'] == 'tcases':
+      tmp_file = self.parameters['console'].replace('.console', '-Generators.json')
+      if os.path.isfile(tmp_file):
+        os.remove(tmp_file)
+      if os.path.isfile('tcases.log'):
+        os.remove('tcases.log')
+

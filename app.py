@@ -11,16 +11,13 @@ from generation import Generation
 app = Flask(__name__)
 
 # set up
-TOOLS_SUPPORTED = ['acts', 'pict', 'casa', 'fastca', 'jenny', 'medici']
-BIN_DIR = os.environ.get('BIN')
+TOOLS_SUPPORTED = ['acts', 'pict', 'casa', 'fastca', 'jenny', 'medici', 'tcases']
+BIN_DIR = 'bin' if os.environ.get('BIN') is None else os.environ.get('BIN')
 TEMP_DIR = 'tmp'
 
-if BIN_DIR is None:
-  print('[ERROR] The bin directory should be set.')
-  exit(-1)
-
 # logging
-logging.basicConfig(filename='log/access.log', level=logging.INFO)
+log_file = 'log/{}-access.log'.format(datetime.now().date())
+logging.basicConfig(filename=log_file, level=logging.INFO)
 
 # load configurations
 CONFIGURATION = {}
@@ -64,6 +61,11 @@ def parameter_process(config, form_data, file_data, file_prefix):
   parameters['output'] = os.path.join(TEMP_DIR, file_prefix + '.out')
   parameters['console'] = os.path.join(TEMP_DIR, file_prefix + '.console')
   parameters['output_type'] = config['output']['type']
+  
+  # post process
+  if 'clean' in config.keys():
+    parameters['clean'] = config['clean']
+  
   return parameters
 
 
@@ -82,7 +84,7 @@ def tool_information():
 def generation():
   """
   The main generation service, which require the following parameters (with examples):
-  * data = {'algorithm': 'acts', 'timeout': 60, 'repeat': 3, 'strength': 2}
+  * data = {'algorithm': 'acts', 'timeout': 60, 'repeat': 2, 'strength': 2, 'model_plain': None}
   * files = {'model': model_file, 'constraint': constraint_file}
   """
   if request.method == 'POST':
@@ -106,7 +108,10 @@ def generation():
 
 @app.route('/tmp/<path:path>')
 def send_file(path):
-  return send_from_directory('tmp', path)
+  if os.path.isfile(os.path.join('tmp', path)):
+    return send_from_directory('tmp', path)
+  else:
+    return 'None'
 
 
 if __name__ == '__main__':

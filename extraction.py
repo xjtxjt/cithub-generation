@@ -10,7 +10,9 @@ class Extraction:
     self.algorithm = algorithm
   
   def array_size(self, console_file):
-    with open(console_file) as file:
+    # the output of medici cannot be resolved by utf-8 encoding
+    encoding = 'ISO-8859-1' if self.algorithm == 'medici' else 'utf-8'
+    with open(console_file, encoding=encoding) as file:
       console = file.readlines()
     
     switcher = {
@@ -19,7 +21,8 @@ class Extraction:
       'casa': lambda: self.casa(console),
       'fastca': lambda: self.fastca(console),
       'jenny': lambda: self.jenny(console),
-      'medici': lambda: self.medici(console)
+      'medici': lambda: self.medici(console),
+      'tcases': lambda: self.tcases(console)
     }
   
     func = switcher.get(self.algorithm)
@@ -70,10 +73,26 @@ class Extraction:
         number = int(line.strip().split()[-2])
         return number
     return None
-    
+  
+  @staticmethod
+  def tcases(console):
+    for line in console:
+      line = line.split(' - ')[-1]
+      # the models that tcases cannot handle
+      # Can't create test case for tuple=Tuple[[p8=2, p1=2]]
+      if line.startswith('Can\'t create test case for tuple'):
+        return -2
+      # FunctionInputDef[find]: Created 29 valid test cases
+      if line.endswith('valid test cases\n'):
+        es = line.strip().split()
+        if es[-5] == 'Created':
+          number = int(line.strip().split()[-4])
+          return number
+    return None
+
 
 if __name__ == '__main__':
-  alg = 'medici'
+  alg = 'tcases'
   ext = Extraction(alg)
   print(ext.array_size('example/output/{}-console.txt'.format(alg)))
 
