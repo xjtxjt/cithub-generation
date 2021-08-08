@@ -18,6 +18,5 @@
     "type": "file"
   },
   "bin": "tcases/bin/tcases",
-  "run": "tcases/bin/tcases -c [strength] -f [output] -r [SEED] -l stdout -T json [model]",
-  "clean": "tcases/bin/stop.sh"
+  "run": "tcases/bin/tcases -c [strength] -f [output] -r [SEED] -l stdout -T json [model]"
 }

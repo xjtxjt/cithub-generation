@@ -4,6 +4,7 @@ import re
 import sys
 import os
 import subprocess
+import signal
 from shutil import copyfile
 from extraction import Extraction
 
@@ -45,12 +46,12 @@ class Generation:
     # get_size = get_size.replace('[console]', self.parameters['console'])
     
     # the clean command
-    if 'clean' in self.parameters.keys():
-      clean = os.path.join(self.base, self.parameters['clean'])
-    else:
-      clean = None
+    #if 'clean' in self.parameters.keys():
+    #  clean = os.path.join(self.base, self.parameters['clean'])
+    #else:
+    #  clean = None
     
-    return run, clean
+    return run
   
   def generation(self):
     """
@@ -62,7 +63,7 @@ class Generation:
     console_file = self.parameters['console']
     
     # the run & clean command
-    RUN, CLEAN = self.process_command()
+    RUN = self.process_command()
     self.logger.info('> TIMEOUT = ' + self.parameters['timeout'] + ', repeat = ' + self.parameters['repeat'])
     # self.logger.info('> GET_SIZE: ' + GET_SIZE)
 
@@ -87,21 +88,23 @@ class Generation:
       
       # execute the command
       start = datetime.now()
+      prc = subprocess.Popen(cd, stdout=console_out, shell=True, start_new_session=True)
       try:
-        subprocess.run(cd.split(' '),
-                       timeout=int(self.parameters['timeout']),
-                       stdout=console_out)
+        #run_p = subprocess.run(cd.split(' '), timeout=int(self.parameters['timeout']), stdout=console_out)
+        prc.communicate(timeout=int(self.parameters['timeout']))
       except subprocess.TimeoutExpired:
         self.logger.info('> Time expired at iteration {}'.format(i))
+        # kill all child processes
+        os.killpg(prc.pid, signal.SIGTERM)
       
       end = datetime.now()
       time = (end - start).seconds
       console_out.flush()
 
       # run post-process command, if there exists
-      if CLEAN is not None:
-        self.logger.info('> RUN:  ' + CLEAN)
-        subprocess.run(CLEAN)
+      #if CLEAN is not None:
+        #self.logger.info('> RUN: ' + CLEAN)
+        #subprocess.run(CLEAN)
         
       # if there is no specified output file, or the output file is not produced (due to timeout),
       # then use console as the output

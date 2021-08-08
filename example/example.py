@@ -25,8 +25,9 @@ def read_model_files(alg, name, tway):
 
 # required parameters
 strength = 2
-algorithm = 'medici'
-files, model_plain = read_model_files(algorithm, 'aircraft', strength)
+algorithm = 'casa'
+model = 'grep'
+files, model_plain = read_model_files(algorithm, model, strength)
 data = {'algorithm': algorithm, 'timeout': 20, 'repeat': 2, 'strength': strength, 'model_plain': model_plain}
 
 r = requests.get(API_URL)
