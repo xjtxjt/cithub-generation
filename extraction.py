@@ -72,18 +72,20 @@ class Extraction:
       if line.startswith('Ottenuti:'):
         number = int(line.strip().split()[-2])
         return number
+      elif line.startswith('Killed'):
+        return -2
     return None
   
   @staticmethod
   def tcases(console):
     for line in console:
-      line = line.split(' - ')[-1]
+      line = line.strip().split(' - ')[-1]
       # the models that tcases cannot handle
       # Can't create test case for tuple=Tuple[[p8=2, p1=2]]
-      if line.startswith('Can\'t create test case for tuple'):
+      if line.startswith('Can\'t create test case for tuple') or line.endswith('Can\'t create test cases'):
         return -2
       # FunctionInputDef[find]: Created 29 valid test cases
-      if line.endswith('valid test cases\n'):
+      if line.endswith('valid test cases'):
         es = line.strip().split()
         if es[-5] == 'Created':
           number = int(line.strip().split()[-4])

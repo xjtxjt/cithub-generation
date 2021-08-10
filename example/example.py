@@ -25,10 +25,10 @@ def read_model_files(alg, name, tway):
 
 # required parameters
 strength = 2
-algorithm = 'casa'
-model = 'grep'
+algorithm = 'tcases'
+model = 'Eshop-fm'
 files, model_plain = read_model_files(algorithm, model, strength)
-data = {'algorithm': algorithm, 'timeout': 20, 'repeat': 2, 'strength': strength, 'model_plain': model_plain}
+data = {'algorithm': algorithm, 'timeout': 30, 'repeat': 1, 'strength': strength, 'model_plain': model_plain}
 
 r = requests.get(API_URL)
 print(r.json())

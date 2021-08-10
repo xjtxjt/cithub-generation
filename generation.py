@@ -45,12 +45,6 @@ class Generation:
     # the command will output the best array size constructed most recently
     # get_size = get_size.replace('[console]', self.parameters['console'])
     
-    # the clean command
-    #if 'clean' in self.parameters.keys():
-    #  clean = os.path.join(self.base, self.parameters['clean'])
-    #else:
-    #  clean = None
-    
     return run
   
   def generation(self):
@@ -65,7 +59,6 @@ class Generation:
     # the run & clean command
     RUN = self.process_command()
     self.logger.info('> TIMEOUT = ' + self.parameters['timeout'] + ', repeat = ' + self.parameters['repeat'])
-    # self.logger.info('> GET_SIZE: ' + GET_SIZE)
 
     # the result
     result = {'size': [], 'time': [], 'best': {'size': -1, 'time': -1, 'array': '', 'console': ''}}
@@ -76,6 +69,7 @@ class Generation:
     for i in range(int(self.parameters['repeat'])):
       # randomise seed for some algorithms
       cd = RUN.replace('[SEED]', str(randrange(999999)))
+      
       # if the argument list is too long (e.g., jenny)
       if len(cd) > 131072:
         self.logger.info('> Error: Argument list too long.')
@@ -88,7 +82,8 @@ class Generation:
       
       # execute the command
       start = datetime.now()
-      prc = subprocess.Popen(cd, stdout=console_out, shell=True, start_new_session=True)
+      prc = subprocess.Popen(cd, shell=True, start_new_session=True, stdout=console_out, stderr=console_out)
+      
       try:
         #run_p = subprocess.run(cd.split(' '), timeout=int(self.parameters['timeout']), stdout=console_out)
         prc.communicate(timeout=int(self.parameters['timeout']))
@@ -96,10 +91,11 @@ class Generation:
         self.logger.info('> Time expired at iteration {}'.format(i))
         # kill all child processes
         os.killpg(prc.pid, signal.SIGTERM)
-      
+    
       end = datetime.now()
       time = (end - start).seconds
       console_out.flush()
+      console_out.close()
 
       # run post-process command, if there exists
       #if CLEAN is not None:
@@ -110,7 +106,6 @@ class Generation:
       # then use console as the output
       if self.parameters['output_type'] == 'console' or not os.path.isfile(array_file):
         copyfile(console_file, array_file)
-      console_out.close()
       
       # get size from the console file
       extract = Extraction(self.parameters['algorithm'])
@@ -170,9 +165,9 @@ class Generation:
   
   def delete_files(self):
     # delete test model files
-    for e in ['model', 'constraint']:
-      if e in self.parameters:
-        os.remove(self.parameters[e])
+    #for e in ['model', 'constraint']:
+    #  if e in self.parameters:
+    #    os.remove(self.parameters[e])
 
     # SPECIAL TREATMENT
     # tcases: remove files 'tmp/XXX-Generators.json', 'tcases.log'
