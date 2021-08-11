@@ -1,4 +1,4 @@
-FROM waynedd/cithub-base:1.0
+FROM waynedd/cithub-base:1.1
 
 COPY requirements.txt ./
 RUN pip3 install --no-cache-dir -r requirements.txt

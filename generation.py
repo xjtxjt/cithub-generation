@@ -85,13 +85,15 @@ class Generation:
       prc = subprocess.Popen(cd, shell=True, start_new_session=True, stdout=console_out, stderr=console_out)
       
       try:
-        #run_p = subprocess.run(cd.split(' '), timeout=int(self.parameters['timeout']), stdout=console_out)
+        # subprocess.run(cd.split(' '), timeout=int(self.parameters['timeout']), stdout=console_out)
         prc.communicate(timeout=int(self.parameters['timeout']))
       except subprocess.TimeoutExpired:
         self.logger.info('> Time expired at iteration {}'.format(i))
         # kill all child processes
         os.killpg(prc.pid, signal.SIGTERM)
-    
+      #except subprocess.CalledProcessError:
+      #  self.logger.info('> Called process error at iteration {}'.format(i))
+      
       end = datetime.now()
       time = (end - start).seconds
       console_out.flush()
@@ -110,6 +112,7 @@ class Generation:
       # get size from the console file
       extract = Extraction(self.parameters['algorithm'])
       out = extract.array_size(console_file)
+      self.logger.info('> Extraction out = ' + str(out))
       # r = subprocess.run(GET_SIZE, shell=True, capture_output=True)
       # out = bytes.decode(r.stdout).strip()
       
@@ -122,7 +125,7 @@ class Generation:
           return {'size': [-2], 'time': [-2], 'best': {'size': -2, 'time': -2, 'array': '', 'console': console_file}}
         # 2) terminate before timeout, runs out of memory
         #    in this case, only one repetition is needed
-        elif time < int(self.parameters['timeout']) - 10:
+        elif out == -9 or time < int(self.parameters['timeout']) - 10:
           self.logger.info('> Result: Run out of memory, time spent = ' + str(time))
           self.delete_files()
           return {'size': [-9], 'time': [-9], 'best': {'size': -9, 'time': -9, 'array': '', 'console': console_file}}

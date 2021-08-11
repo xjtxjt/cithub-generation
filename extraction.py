@@ -14,6 +14,9 @@ class Extraction:
     encoding = 'ISO-8859-1' if self.algorithm == 'medici' else 'utf-8'
     with open(console_file, encoding=encoding) as file:
       console = file.readlines()
+      
+    if len(console) > 0 and console[-1].startswith('Killed'):
+      return -9
     
     switcher = {
       'acts': lambda: self.acts(console),
@@ -72,8 +75,6 @@ class Extraction:
       if line.startswith('Ottenuti:'):
         number = int(line.strip().split()[-2])
         return number
-      elif line.startswith('Killed'):
-        return -2
     return None
   
   @staticmethod

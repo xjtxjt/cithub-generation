@@ -84,16 +84,16 @@ def tool_information():
 def generation():
   """
   The main generation service, which require the following parameters (with examples):
-  * data = {'algorithm': 'acts', 'timeout': 60, 'repeat': 2, 'strength': 2, 'model_plain': None}
+  * data = {'algorithm': 'acts', 'model': 'apache', 'timeout': 60, 'repeat': 2, 'strength': 2, 'model_plain': None}
   * files = {'model': model_file, 'constraint': constraint_file}
   """
   if request.method == 'POST':
     # configuration of specific tool
     config = CONFIGURATION[request.form['algorithm']]
     
-    # prefix of temporary file
+    # prefix of temporary file: [algorithm]-[model]-[t]-way-[stamp]
     stamp = ''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
-    prefix = datetime.now().isoformat(timespec='seconds') + '-' + stamp
+    prefix = '{}-{}-{}-way-{}'.format(request.form['algorithm'], request.form['model'], request.form['strength'], stamp)
     
     # pre-process of parameters
     parameters = parameter_process(config, request.form, request.files, prefix)
