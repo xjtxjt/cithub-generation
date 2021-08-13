@@ -43,7 +43,15 @@ class Extraction:
 
   @staticmethod
   def pict(console):
-    return len(console) - 1 if len(console) > 1 else None
+    if len(console) > 1:
+      start_line = 0
+      for line in console:
+        if line.split()[0].strip().isdigit():
+          break
+        start_line += 1
+      return len(console) - start_line
+    else:
+      return None
   
   @staticmethod
   def casa(console):
@@ -86,6 +94,8 @@ class Extraction:
       # Can't create test case for tuple=Tuple[[p8=2, p1=2]]
       if line.startswith('Can\'t create test case for tuple') or line.endswith('Can\'t create test cases'):
         return -2
+      if line.startswith('java') and line.index('Exception') > 0:
+        return -2
       # FunctionInputDef[find]: Created 29 valid test cases
       if line.endswith('valid test cases'):
         es = line.strip().split()
@@ -118,7 +128,7 @@ class Extraction:
     
   
 if __name__ == '__main__':
-  alg = 'coffee4j'
+  alg = 'tcases'
   ext = Extraction(alg)
   print(ext.array_size('example/output/{}-console.txt'.format(alg)))
 
