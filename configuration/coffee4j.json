@@ -1,0 +1,22 @@
+{
+  "name": "coffee4j",
+  "version": "1.0.7",
+  "author": "Research Group Software Construction, RWTH Aachen University",
+  "link": "https://coffee4j.github.io",
+  "input": [
+    {
+      "name": "model",
+      "type": "file"
+    },
+    {
+      "name": "strength",
+      "type": "number"
+    }
+  ],
+  "output": {
+    "name": "output",
+    "type": "file"
+  },
+  "bin": "pack-coffee4j.jar",
+  "run": "java -jar pack-coffee4j.jar [strength] [model] [output]"
+}

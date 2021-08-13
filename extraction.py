@@ -8,6 +8,17 @@ class Extraction:
   """
   def __init__(self, algorithm):
     self.algorithm = algorithm
+    self.switcher = {
+      'acts': lambda x: self.acts(x),
+      'pict': lambda x: self.pict(x),
+      'casa': lambda x: self.casa(x),
+      'fastca': lambda x: self.fastca(x),
+      'jenny': lambda x: self.jenny(x),
+      'medici': lambda x: self.medici(x),
+      'tcases': lambda x: self.tcases(x),
+      'coffee4j': lambda x: self.coffee4j(x),
+      'jcunit': lambda x: self.jcunit(x)
+    }
   
   def array_size(self, console_file):
     # the output of medici cannot be resolved by utf-8 encoding
@@ -18,26 +29,16 @@ class Extraction:
     if len(console) > 0 and console[-1].startswith('Killed'):
       return -9
     
-    switcher = {
-      'acts': lambda: self.acts(console),
-      'pict': lambda: self.pict(console),
-      'casa': lambda: self.casa(console),
-      'fastca': lambda: self.fastca(console),
-      'jenny': lambda: self.jenny(console),
-      'medici': lambda: self.medici(console),
-      'tcases': lambda: self.tcases(console)
-    }
-  
-    func = switcher.get(self.algorithm)
-    size = func()
+    func = self.switcher.get(self.algorithm)
+    size = func(console)
     return size
   
   @staticmethod
   def acts(console):
-    for line in console:
-      if line.startswith('Number of Tests	:'):
-        number = int(line.strip().split()[-1])
-        return number
+    if len(console) > 4 and console[-4].startswith('Number of Tests'):
+      num = console[-4].strip().split()[-1]
+      if num.isdigit():
+        return int(num)
     return None
 
   @staticmethod
@@ -54,11 +55,11 @@ class Extraction:
     
   @staticmethod
   def fastca(console):
-    num = console[-1].strip().split()
-    if len(num) == 3 and num[1].isdigit():
-      return int(num[1])
-    else:
-      return None
+    if len(console) > 1:
+      num = console[-1].strip().split()
+      if len(num) == 3 and num[1].isdigit():
+        return int(num[1])
+    return None
   
   @staticmethod
   def jenny(console):
@@ -71,11 +72,11 @@ class Extraction:
   
   @staticmethod
   def medici(console):
-    for line in console[::-1]:
-      if line.startswith('Ottenuti:'):
-        number = int(line.strip().split()[-2])
-        return number
-    return None
+    if len(console) > 3:
+      num = console[-3].strip().split()
+      if num[0] == 'Ottenuti:' and num[1].isdigit():
+        return int(num[1])
+      return None
   
   @staticmethod
   def tcases(console):
@@ -92,10 +93,32 @@ class Extraction:
           number = int(line.strip().split()[-4])
           return number
     return None
-
-
+  
+  @staticmethod
+  def coffee4j(console):
+    for line in console:
+      if line.startswith('# Array Size'):
+        return int(line.strip().split()[-1])
+      # the models that coffee4j cannot handle
+      # size of parameter value equals one
+      elif line.startswith('[Error] The expression must not evaluate to false'):
+        return -2
+      elif line.startswith('[Error]'):
+        return -7
+    return None
+  
+  @staticmethod
+  def jcunit(console):
+    for line in console:
+      if line.startswith('# Array Size'):
+        return int(line.strip().split()[-1])
+      elif line.startswith('[Error]'):
+        return -7
+    return None
+    
+  
 if __name__ == '__main__':
-  alg = 'medici'
+  alg = 'coffee4j'
   ext = Extraction(alg)
   print(ext.array_size('example/output/{}-console.txt'.format(alg)))
 

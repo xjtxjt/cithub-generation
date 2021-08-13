@@ -15,6 +15,8 @@ def read_model_files(alg, name, tway):
   # use a single model file (their respective format)
   elif alg in ['acts', 'pict', 'tcases']:
     f1 = {'model': open('files/{}-{}.model'.format(name, alg))}
+  elif alg in ['coffee4j', 'jcunit']:
+    f1 = {'model': open('files/{}-acts.model'.format(name, alg))}
   # the content in the model file should be appended in the run command
   elif alg == 'jenny':
     with open('files/{}-jenny-{}-way.model'.format(name, tway)) as file:
@@ -25,7 +27,7 @@ def read_model_files(alg, name, tway):
 
 # required parameters
 strength = 2
-algorithm = 'acts'
+algorithm = 'jcunit'
 model = 'grep'
 files, model_plain = read_model_files(algorithm, model, strength)
 data = {'algorithm': algorithm, 'model': model, 'timeout': 100, 'repeat': 1,

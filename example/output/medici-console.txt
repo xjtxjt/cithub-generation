@@ -1,266 +1,266 @@
-Casa mode enabled 
+Casa mode enabled
 Generated tuples for 2-wise with cardinality 628
 time execution tuple generator 2-wise 2ms
 MEDDLY version 0.14.771
 Created domain with 9 variables
 Cardinalita' di partenza 207360
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 0 190080
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 1 172800
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 2 167040
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 3 149760
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 4 132480
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 5 126720
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 6 109440
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 7 92160
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 8 86400
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 9 81600
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 10 78720
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 11 76800
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 12 76800
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 13 74880
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 14 73920
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 15 67200
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 16 64320
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 17 64320
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 18 62400
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 19 62400
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 20 61440
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 21 54720
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 22 51840
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 23 51840
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 24 49920
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 25 49920
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 26 48960
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 27 42240
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 28 39360
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 29 39360
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 30 37440
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 31 37440
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 32 36480
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 33 31680
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 34 28800
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 35 28320
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 36 26760
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 37 26640
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 38 26400
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 39 26280
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 40 26040
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 41 24480
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 42 24000
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 43 23880
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 44 23640
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 45 23520
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 46 23280
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 47 22800
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 48 21240
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 49 21120
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 50 20880
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 51 20760
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 52 20520
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 53 18960
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 54 18480
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 55 18360
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 56 18120
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 57 18000
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 58 17760
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 59 17280
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 60 15720
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 61 15600
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 62 15360
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 63 15240
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 64 15000
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 65 13440
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 66 12960
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 67 12840
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 68 12600
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 69 12480
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 70 12240
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 71 10920
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 72 10560
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 73 10380
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 74 9150
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 75 8940
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 76 8550
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 77 7320
-Cardinalità del constraint 190080
+Cardinalitï¿½ del constraint 190080
 Cardinalita ridotta con constraint 78 7140
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 79 6930
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 80 6540
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 81 6060
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 82 5160
-Cardinalità del constraint 184320
+Cardinalitï¿½ del constraint 184320
 Cardinalita ridotta con constraint 83 5100
-Cardinalità del constraint 184320
+Cardinalitï¿½ del constraint 184320
 Cardinalita ridotta con constraint 84 4270
-Cardinalità del constraint 184320
+Cardinalitï¿½ del constraint 184320
 Cardinalita ridotta con constraint 85 4260
-Cardinalità del constraint 184320
+Cardinalitï¿½ del constraint 184320
 Cardinalita ridotta con constraint 86 3430
-Cardinalità del constraint 184320
+Cardinalitï¿½ del constraint 184320
 Cardinalita ridotta con constraint 87 3370
-Cardinalità del constraint 184320
+Cardinalitï¿½ del constraint 184320
 Cardinalita ridotta con constraint 88 3360
-Cardinalità del constraint 172800
+Cardinalitï¿½ del constraint 172800
 Cardinalita ridotta con constraint 89 3330
-Cardinalità del constraint 172800
+Cardinalitï¿½ del constraint 172800
 Cardinalita ridotta con constraint 90 3320
-Cardinalità del constraint 186624
+Cardinalitï¿½ del constraint 186624
 Cardinalita ridotta con constraint 91 2984
-Cardinalità del constraint 202176
+Cardinalitï¿½ del constraint 202176
 Cardinalita ridotta con constraint 92 2956
-Cardinalità del constraint 202176
+Cardinalitï¿½ del constraint 202176
 Cardinalita ridotta con constraint 93 2908
-Cardinalità del constraint 193536
+Cardinalitï¿½ del constraint 193536
 Cardinalita ridotta con constraint 94 2572
-Cardinalità del constraint 186624
+Cardinalitï¿½ del constraint 186624
 Cardinalita ridotta con constraint 95 2408
-Cardinalità del constraint 193536
+Cardinalitï¿½ del constraint 193536
 Cardinalita ridotta con constraint 96 2402
-Cardinalità del constraint 193536
+Cardinalitï¿½ del constraint 193536
 Cardinalita ridotta con constraint 97 2073
-Cardinalità del constraint 186624
+Cardinalitï¿½ del constraint 186624
 Cardinalita ridotta con constraint 98 1908
-Cardinalità del constraint 202176
+Cardinalitï¿½ del constraint 202176
 Cardinalita ridotta con constraint 99 1894
-Cardinalità del constraint 202176
+Cardinalitï¿½ del constraint 202176
 Cardinalita ridotta con constraint 100 1870
-Cardinalità del constraint 193536
+Cardinalitï¿½ del constraint 193536
 Cardinalita ridotta con constraint 101 1541
-Cardinalità del constraint 193536
+Cardinalitï¿½ del constraint 193536
 Cardinalita ridotta con constraint 102 1535
-Cardinalità del constraint 193536
+Cardinalitï¿½ del constraint 193536
 Cardinalita ridotta con constraint 103 1370
-Cardinalità del constraint 186624
+Cardinalitï¿½ del constraint 186624
 Cardinalita ridotta con constraint 104 1288
-Cardinalità del constraint 195840
+Cardinalitï¿½ del constraint 195840
 Cardinalita ridotta con constraint 105 1067
-Cardinalità del constraint 206400
+Cardinalitï¿½ del constraint 206400
 Cardinalita ridotta con constraint 106 981
-Cardinalità del constraint 206400
+Cardinalitï¿½ del constraint 206400
 Cardinalita ridotta con constraint 107 903
-Cardinalità del constraint 206400
+Cardinalitï¿½ del constraint 206400
 Cardinalita ridotta con constraint 108 902
-Cardinalità del constraint 206400
+Cardinalitï¿½ del constraint 206400
 Cardinalita ridotta con constraint 109 901
-Cardinalità del constraint 198720
+Cardinalitï¿½ del constraint 198720
 Cardinalita ridotta con constraint 110 856
-Cardinalità del constraint 206640
+Cardinalitï¿½ del constraint 206640
 Cardinalita ridotta con constraint 111 841
-Cardinalità del constraint 206640
+Cardinalitï¿½ del constraint 206640
 Cardinalita ridotta con constraint 112 823
-Cardinalità del constraint 206640
+Cardinalitï¿½ del constraint 206640
 Cardinalita ridotta con constraint 113 823
-Cardinalità del constraint 206640
+Cardinalitï¿½ del constraint 206640
 Cardinalita ridotta con constraint 114 823
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 115 778
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 116 738
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 117 693
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 118 653
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 119 608
-Cardinalità del constraint 200880
+Cardinalitï¿½ del constraint 200880
 Cardinalita ridotta con constraint 120 568
-Cardinalità del constraint 204768
+Cardinalitï¿½ del constraint 204768
 Cardinalita ridotta con constraint 121 548
-Cardinalità del constraint 204768
+Cardinalitï¿½ del constraint 204768
 Cardinalita ridotta con constraint 122 528
-Cardinalità del constraint 204768
+Cardinalitï¿½ del constraint 204768
 Cardinalita ridotta con constraint 123 508
-Cardinalità del constraint 204768
+Cardinalitï¿½ del constraint 204768
 Cardinalita ridotta con constraint 124 488
-Cardinalità del constraint 204768
+Cardinalitï¿½ del constraint 204768
 Cardinalita ridotta con constraint 125 468
-Cardinalità del constraint 204768
+Cardinalitï¿½ del constraint 204768
 Cardinalita ridotta con constraint 126 448
-Cardinalità del constraint 200448
+Cardinalitï¿½ del constraint 200448
 Cardinalita ridotta con constraint 127 443
-Cardinalità del constraint 200448
+Cardinalitï¿½ del constraint 200448
 Cardinalita ridotta con constraint 128 438
 Cardinalita finale 438
 Numero constraints di partenza: 129
@@ -698,7 +698,7 @@ Scelto prov
 CARD: 1 1 tuples weight: 1 [ 1 1 3 5 7 3 2 1 4 --> T]
 COPERTI: 1 WEIGHT: 1
 TUPLE RIMANENTI 0
-***********************Elenco nodi risultati*************************************** 
+***********************Elenco nodi risultati***************************************
 CARD: 1 36 tuples weight: 61204.5 [ 0 1 3 1 0 0 0 0 2 --> T]
 CARD: 1 30 tuples weight: 45248.9 [ 2 1 3 1 1 1 1 0 0 --> T]
 CARD: 1 21 tuples weight: 32012.6 [ 0 1 3 1 2 2 0 0 1 --> T]

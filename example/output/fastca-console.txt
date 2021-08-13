@@ -1,4 +1,4 @@
-We recommend the use of ACTS on Windows. The GUI features may be different on other platforms. 
+We recommend the use of ACTS on Windows. The GUI features may be different on other platforms.
 System Name: /tmp/fileZtiCVv389.txt
 
 Strength: 2

@@ -11,7 +11,7 @@ from generation import Generation
 app = Flask(__name__)
 
 # set up
-TOOLS_SUPPORTED = ['acts', 'pict', 'casa', 'fastca', 'jenny', 'medici', 'tcases']
+TOOLS_SUPPORTED = ['acts', 'pict', 'casa', 'fastca', 'jenny', 'medici', 'tcases', 'coffee4j', 'jcunit']
 BIN_DIR = 'bin' if os.environ.get('BIN') is None else os.environ.get('BIN')
 TEMP_DIR = 'tmp'
 

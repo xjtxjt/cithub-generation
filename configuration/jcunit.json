@@ -1,0 +1,22 @@
+{
+  "name": "jcunit",
+  "version": "0.8.17",
+  "author": "Hiroshi Ukai",
+  "link": "https://github.com/dakusui/jcunit",
+  "input": [
+    {
+      "name": "model",
+      "type": "file"
+    },
+    {
+      "name": "strength",
+      "type": "number"
+    }
+  ],
+  "output": {
+    "name": "output",
+    "type": "file"
+  },
+  "bin": "pack-jcunit.jar",
+  "run": "java -jar pack-jcunit.jar [strength] [model] [output]"
+}
