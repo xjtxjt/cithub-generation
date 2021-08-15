@@ -13,10 +13,10 @@ docker pull waynedd/cithub-generation:1.7
 ```
 
 ```bash
-docker run -d -p [port]:5000 --cpus=2 --memory=16G --name [service_name] waynedd/cithub-generation:1.8
+docker run -d -p [port]:6000 --cpus=4 --memory=16G --name [service_name] waynedd/cithub-generation:1.9
 ```
 
-Once the service is ready, the specific generation service can be visited via an HTTP Post method:
+Once the service is ready, the specific generation algorithm can be visited via an HTTP Post method:
 
 ```python
 import requests
@@ -28,23 +28,20 @@ r = requests.post('http://127.0.0.1:[port]/generation', data=data, files=files)
 print(r.json())
 ```
 
-Currently, seven covering array generation tools are supported:
+Currently, nine covering array generation tools are supported, including `acts`, `pict`, `casa`, `fastca`, `jenny`, `medici`, `tcases`, `coffee4j`, and `jcunit`. See `example/example.py` for the codes that use each of the above tools to generate covering arrays. The test model (and constraint) files can be found in  `example/files` 
 
-* `acts`
-* `pict`
-* `casa`
-* `fastca`
-* `jenny`
-* `medici`
-* `tcases`
+**Notes**
 
-See `example/example.py` for the codes that use each of the above tools to generate covering arrays. The test model (and constraint) files can be found in  `example/files`. 
+* The service will only invoke the core generation algorithm (engine) of each tool, so that other avaiable functionalities of these tools (e.g., coverage measurement, fault diagnosis) are not supported.
+* Currently, the service can only accept test model files of specific formats (which describes an abtract model only). This is different from the origianl format of these tools.
 
 
 
 ## Add New Tools
 
 In order to add a new covering array generation too into the service, just 1) prepare a configuration file, and 2) write a function that extracts array sizes.
+
+
 
 #### Configuration File
 
@@ -81,7 +78,6 @@ Specifially,
 * Each tool typically has one `output` parameter. Its type indicates 1) a `file` is specified in the running command, or 2) the results can only be obtained from the `console` (stdout).
 *  `bin` gives the executable binary file of the tool.
 *  `run` gives the particular command to execute the tool, where each parameter is placed into a square brackets `[]`, and the optional part is placed into a brace `{}`. Note that each parameter here should be described in `input` and `output` sections (except `[SEED]`).
-* *Optional*:  `clean` gives the additional command that should be executed after the execution of the tool (e.g., killing some processes forked by the tool). See `configuration/tcases.json` for example.
 
 
 
@@ -109,12 +105,12 @@ After the updating, just rebuild (and publish) the new image, and run the contai
 
 ```bash
 docker build -t username/cithub-generation:1.x .
+```
+
+```bash
 docker push username/cithub-generation:1.x
 ```
 
 
 
-#### Additional Notes
-
-The current version of `cithub-generation` is especially designed for packaging an existing command-line tool. If you wish to package an algorithm under development, it is recommended to design and implement it as a native docker-based web service.
-
+Note that The current version of `cithub-generation` is especially designed for packaging an existing command-line tool. If you wish to package an algorithm under development, it is recommended to design and implement it as a native docker-based web service.

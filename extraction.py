@@ -35,10 +35,11 @@ class Extraction:
   
   @staticmethod
   def acts(console):
-    if len(console) > 4 and console[-4].startswith('Number of Tests'):
-      num = console[-4].strip().split()[-1]
-      if num.isdigit():
-        return int(num)
+    for line in console[::-1]:
+      if line.startswith('Number of Tests'):
+        num = line.strip().split()[-1]
+        if num.isdigit():
+          return int(num)
     return None
 
   @staticmethod
@@ -80,11 +81,11 @@ class Extraction:
   
   @staticmethod
   def medici(console):
-    if len(console) > 3:
-      num = console[-3].strip().split()
+    for line in console[::-1]:
+      num = line.strip().split()
       if num[0] == 'Ottenuti:' and num[1].isdigit():
         return int(num[1])
-      return None
+    return None
   
   @staticmethod
   def tcases(console):
@@ -128,7 +129,7 @@ class Extraction:
     
   
 if __name__ == '__main__':
-  alg = 'tcases'
+  alg = 'acts'
   ext = Extraction(alg)
   print(ext.array_size('example/output/{}-console.txt'.format(alg)))
 
