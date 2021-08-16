@@ -1,12 +1,21 @@
-22:29:39.036 INFO  org.cornutum.tcases.Tcases - Tcases 3.7.1 (2021-07-27)
-22:29:39.040 INFO  org.cornutum.tcases.Tcases - Reading system input definition=./example/files/flex-tcases.model
-22:29:39.267 INFO  org.cornutum.tcases.Tcases - Reading generator definition=./example/files/flex-tcases-Generators.json
-22:29:39.287 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Preparing constraint info
-22:29:39.291 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Generating test cases
-22:29:39.298 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Extended 0 valid base test cases
-22:29:39.458 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Created 29 valid test cases
-22:29:39.458 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Extended 0 base failure test cases
-22:29:39.458 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Created 0 failure test cases
-22:29:39.464 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Completed 29 test cases
-22:29:39.465 INFO  org.cornutum.tcases.Tcases - Updating test definition file=tmp/out.txt
-22:29:39.601 INFO  org.cornutum.tcases.Tcases - Updating generator definition=./example/files/flex-tcases-Generators.json
+08:07:21.715 INFO  org.cornutum.tcases.Tcases - Tcases 3.7.1 (2021-07-27)
+08:07:21.722 INFO  org.cornutum.tcases.Tcases - Reading system input definition=./tmp/tcases-apache-4-way-SK64.model
+08:07:22.161 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Preparing constraint info
+08:07:22.169 INFO  o.c.t.generator.TupleGenerator - FunctionInputDef[find]: Generating test cases
+java.lang.OutOfMemoryError: Java heap space
+	at org.apache.commons.collections4.bag.HashBag.<init>(HashBag.java:48)
+	at org.cornutum.tcases.PropertySet.<init>(PropertySet.java:46)
+	at org.cornutum.tcases.PropertySet.<init>(PropertySet.java:30)
+	at org.cornutum.tcases.generator.Tuple.setBindings(Tuple.java:114)
+	at org.cornutum.tcases.generator.Tuple.<init>(Tuple.java:62)
+	at org.cornutum.tcases.generator.Tuple.<init>(Tuple.java:54)
+	at org.cornutum.tcases.generator.TupleCombiner.getTuples(TupleCombiner.java:308)
+	at org.cornutum.tcases.generator.TupleCombiner.getTuples(TupleCombiner.java:287)
+	at org.cornutum.tcases.generator.TupleCombiner.getTuples(TupleCombiner.java:262)
+	at org.cornutum.tcases.generator.TupleGenerator.getUncombinedTuples(TupleGenerator.java:690)
+	at org.cornutum.tcases.generator.TupleGenerator.getValidTupleSet(TupleGenerator.java:667)
+	at org.cornutum.tcases.generator.TupleGenerator.getTests(TupleGenerator.java:143)
+	at org.cornutum.tcases.Tcases.getTests(Tcases.java:85)
+	at org.cornutum.tcases.Tcases.getTests(Tcases.java:49)
+	at org.cornutum.tcases.TcasesCommand.run(TcasesCommand.java:1318)
+	at org.cornutum.tcases.TcasesCommand.main(TcasesCommand.java:1133)

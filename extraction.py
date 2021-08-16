@@ -90,13 +90,17 @@ class Extraction:
   @staticmethod
   def tcases(console):
     for line in console:
-      line = line.strip().split(' - ')[-1]
       # the models that tcases cannot handle
       # Can't create test case for tuple=Tuple[[p8=2, p1=2]]
-      if line.startswith('Can\'t create test case for tuple') or line.endswith('Can\'t create test cases'):
+      if line.find('Can\'t create test case for tuple') > 0 or line.find('Can\'t create test cases') > 0:
         return -2
-      if line.startswith('java') and (line.find('Exception') > 0 or line.find('Error') > 0):
-        return -2
+      if line.startswith('java'):
+        if line.find('OutOfMemoryError') > 0:
+          return -9
+        elif line.find('Exception') > 0 or line.find('Error') > 0:
+          return -2
+      
+      line = line.strip().split(' - ')[-1]
       # FunctionInputDef[find]: Created 29 valid test cases
       if line.endswith('valid test cases'):
         es = line.strip().split()
@@ -121,6 +125,8 @@ class Extraction:
   @staticmethod
   def jcunit(console):
     for line in console:
+      if line.find('Too many attributes or attribute values') > 0:
+        return -2
       if line.startswith('# Array Size'):
         return int(line.strip().split()[-1])
       elif line.startswith('[Error]'):
@@ -129,7 +135,7 @@ class Extraction:
     
   
 if __name__ == '__main__':
-  alg = 'acts'
+  alg = 'tcases'
   ext = Extraction(alg)
   print(ext.array_size('example/output/{}-console.txt'.format(alg)))
 
