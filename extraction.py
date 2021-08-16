@@ -95,7 +95,7 @@ class Extraction:
       # Can't create test case for tuple=Tuple[[p8=2, p1=2]]
       if line.startswith('Can\'t create test case for tuple') or line.endswith('Can\'t create test cases'):
         return -2
-      if line.startswith('java') and line.index('Exception') > 0:
+      if line.startswith('java') and (line.find('Exception') > 0 or line.find('Error') > 0):
         return -2
       # FunctionInputDef[find]: Created 29 valid test cases
       if line.endswith('valid test cases'):
