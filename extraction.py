@@ -75,7 +75,8 @@ class Extraction:
     for line in console:
       # the models that jenny cannot handle
       if line.startswith('Could not cover tuple') or \
-         line.startswith('jenny: a dimension must have at least 2 features'):
+         line.find('a dimension must have at least 2 features') > 0 or \
+         line.find('impossible with only 0 dimensions') > 0:
         return -2
     return len(console) if len(console) > 0 else None
   

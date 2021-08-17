@@ -26,11 +26,11 @@ def read_model_files(alg, name, tway):
 
 
 # required parameters
-strength = 2
-algorithm = 'jcunit'
-model = 'grep'
+strength = 5
+algorithm = 'tcases'
+model = 'M41_V1'
 files, model_plain = read_model_files(algorithm, model, strength)
-data = {'algorithm': algorithm, 'model': model, 'timeout': 100, 'repeat': 1,
+data = {'algorithm': algorithm, 'model': model, 'timeout': 1000, 'repeat': 1,
         'strength': strength, 'model_plain': model_plain}
 
 r = requests.get(API_URL)
