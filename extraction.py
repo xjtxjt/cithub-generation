@@ -1,4 +1,3 @@
-
 class Extraction:
   """
   The functions to extract array sizes from the console_file of covering array generation tools.
@@ -6,6 +5,7 @@ class Extraction:
   * integer = -2 : the algorithm fails to execute
   * None         : no result is obtained
   """
+  
   def __init__(self, algorithm):
     self.algorithm = algorithm
     self.switcher = {
@@ -25,7 +25,7 @@ class Extraction:
     encoding = 'ISO-8859-1' if self.algorithm == 'medici' else 'utf-8'
     with open(console_file, encoding=encoding) as file:
       console = file.readlines()
-      
+    
     if len(console) > 0 and console[-1].startswith('Killed'):
       return -9
     
@@ -41,7 +41,7 @@ class Extraction:
         if num.isdigit():
           return int(num)
     return None
-
+  
   @staticmethod
   def pict(console):
     if len(console) > 1:
@@ -62,7 +62,7 @@ class Extraction:
         number = int(line.strip().split()[-2])
         return number
     return None
-    
+  
   @staticmethod
   def fastca(console):
     if len(console) > 1:
@@ -76,9 +76,9 @@ class Extraction:
     for line in console:
       # the models that jenny cannot handle
       if line.startswith('Could not cover tuple') or \
-         line.find('a dimension must have at least 2 features') > 0 or \
-         line.find('impossible with only 0 dimensions') > 0 or \
-         line.find('Argument list too long') > 0:
+          line.find('a dimension must have at least 2 features') > 0 or \
+          line.find('impossible with only 0 dimensions') > 0 or \
+          line.find('Argument list too long') > 0:
         return -2
     return len(console) if len(console) > 0 else None
   
@@ -120,7 +120,7 @@ class Extraction:
       # the models that coffee4j cannot handle
       # size of parameter value equals one
       elif line.startswith('[Error] The expression must not evaluate to false') or \
-           line.startswith('Exception in thread'):
+          line.startswith('Exception in thread'):
         return -2
       elif line.startswith('[Error]'):
         return -7
@@ -129,16 +129,18 @@ class Extraction:
   @staticmethod
   def jcunit(console):
     for line in console:
+      if line.find('OutOfMemoryError') > 0:
+        return -9
       if line.find('Too many attributes or attribute values') > 0 or \
-         line.startswith('[Error]'):
+          line.startswith('Exception in thread') or \
+          line.startswith('[Error]'):
         return -2
       if line.startswith('# Array Size'):
         return int(line.strip().split()[-1])
     return None
-    
-  
-if __name__ == '__main__':
-  alg = 'tcases'
-  ext = Extraction(alg)
-  print(ext.array_size('example/output/{}-console.txt'.format(alg)))
 
+
+if __name__ == '__main__':
+  alg = 'coffee4j'
+  ext = Extraction(alg)
+  print(ext.array_size('example/output/coffee4j-console.txt'))

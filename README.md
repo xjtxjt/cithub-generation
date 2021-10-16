@@ -9,11 +9,11 @@
  To deploy the service, first pull the docker image, and then run the container (with specific hardware constraints):
 
 ```bash
-docker pull waynedd/cithub-generation:1.7
+docker pull waynedd/cithub-generation:2.0
 ```
 
 ```bash
-docker run -d -p [port]:6000 --cpus=4 --memory=16G --name [service_name] waynedd/cithub-generation:1.9
+docker run -d -p [port]:6000 --cpus=4 --memory=16G --name [service_name] waynedd/cithub-generation:2.0
 ```
 
 Once the service is ready, the specific generation algorithm can be visited via an HTTP Post method:
@@ -28,12 +28,12 @@ r = requests.post('http://127.0.0.1:[port]/generation', data=data, files=files)
 print(r.json())
 ```
 
-Currently, nine covering array generation tools are supported, including `acts`, `pict`, `casa`, `fastca`, `jenny`, `medici`, `tcases`, `coffee4j`, and `jcunit`. See `example/example.py` for the codes that use each of the above tools to generate covering arrays. The test model (and constraint) files can be found in  `example/files` 
+Currently, nine covering array generation tools are supported, including `acts`, `pict`, `casa`, `fastca`, `jenny`, `medici`, `tcases`, `coffee4j`, and `jcunit`. See `example/example.py` for the codes that construct the input parameters and files for using the abovel tools. Some test model and constraint files can be found in  `example/files`.
 
 **Notes**
 
-* The service will only invoke the core generation algorithm (engine) of each tool, so that other avaiable functionalities of these tools (e.g., coverage measurement, fault diagnosis) are not supported.
-* Currently, the service can only accept test model files of specific formats (which describes an abtract model only). This is different from the origianl format of these tools.
+* The service will only invoke the core generation algorithm of each tool, so that other avaiable functionalities of these tools (e.g., coverage measurement, fault diagnosis, etc.) are not supported.
+* Currently, the service is only tested with model files of abstract information (that is, a specific variant of their original modelling langauge).
 
 
 
@@ -114,3 +114,4 @@ docker push username/cithub-generation:1.x
 
 
 Note that The current version of `cithub-generation` is especially designed for packaging an existing command-line tool. If you wish to package an algorithm under development, it is recommended to design and implement it as a native docker-based web service.
+

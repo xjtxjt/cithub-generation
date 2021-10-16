@@ -7,22 +7,23 @@ FOLDER = os.path.dirname(os.path.abspath(__file__))
 
 
 def read_model_files(alg, name, tway):
-  f1, c1 = None, None
-  # use CASA format
+  file, content = None, None
+  # use CASA format (CASA, FastCA, medici)
   if alg in ['casa', 'fastca', 'medici']:
-    f1 = {'model': open('files/{}-casa-{}-way.model'.format(name, tway)),
-          'constraint': open('files/{}-casa-{}-way.constraint'.format(name, tway))}
-  # use a single model file (their respective format)
+    file = {'model': open('files/{}-casa-{}-way.model'.format(name, tway)),
+            'constraint': open('files/{}-casa-{}-way.constraint'.format(name, tway))}
+  # use a single model file (ACTS, PICT, Tcases)
   elif alg in ['acts', 'pict', 'tcases']:
-    f1 = {'model': open('files/{}-{}.model'.format(name, alg))}
+    file = {'model': open('files/{}-{}.model'.format(name, alg))}
+  # use ACTS format (coffee4j, jcunit)
   elif alg in ['coffee4j', 'jcunit']:
-    f1 = {'model': open('files/{}-acts.model'.format(name, alg))}
-  # the content in the model file should be appended in the run command
+    file = {'model': open('files/{}-acts.model'.format(name, alg))}
+  # the content in the model file should be appended in the run command (jenny)
   elif alg == 'jenny':
     with open('files/{}-jenny-{}-way.model'.format(name, tway)) as file:
-      c1 = file.readline().strip()
+      content = file.readline().strip()
 
-  return f1, c1
+  return file, content
 
 
 # required parameters
