@@ -5,14 +5,14 @@
   "link": "https://burtleburtle.net/bob/math/jenny.html",
   "input": [
     {
-      "name": "model_plain",
+      "name": "model_text",
       "type": "string"
     }
   ],
   "output": {
     "name": "output",
-    "type": "console"
+    "type": "stdout"
   },
   "bin": "jenny",
-  "run": "jenny [model_plain]"
+  "run": "jenny [model_text]"
 }

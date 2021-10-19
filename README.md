@@ -6,13 +6,10 @@
 
 ## Deployment & Usage
 
- To deploy the service, first pull the docker image, and then run the container (with specific hardware constraints):
+ To deploy the service, just pull the docker image, and then run the container (with specific hardware constraints):
 
 ```bash
 docker pull waynedd/cithub-generation:2.0
-```
-
-```bash
 docker run -d -p [port]:6000 --cpus=4 --memory=16G --name [service_name] waynedd/cithub-generation:2.0
 ```
 
@@ -21,14 +18,18 @@ Once the service is ready, the specific generation algorithm can be visited via 
 ```python
 import requests
 
-data = {'algorithm': 'acts', 'timeout': 60, 'repeat': 5, 'strength': 2}
-files = {'model': 'example/files/grep-acts.model'}
+data = {
+  'algorithm': 'acts', 
+  'name': 'aircraft', 
+  'strength': 2, 
+  'model_text': open('example/models/aircraft-acts.model')
+}
 
-r = requests.post('http://127.0.0.1:[port]/generation', data=data, files=files)
+r = requests.post('http://127.0.0.1:[port]/generation', data=data)
 print(r.json())
 ```
 
-Currently, nine covering array generation tools are supported, including `acts`, `pict`, `casa`, `fastca`, `jenny`, `medici`, `tcases`, `coffee4j`, and `jcunit`. See `example/example.py` for the codes that construct the input parameters and files for using the abovel tools. Some test model and constraint files can be found in  `example/files`.
+Currently, nine covering array generation tools are supported, including `acts`, `pict`, `casa`, `fastca`, `jenny`, `medici`, `tcases`, `coffee4j`, and `jcunit`. See `example/example.py` for the codes that construct input parameters (or files) for using the above tools.
 
 **Notes**
 
@@ -39,13 +40,16 @@ Currently, nine covering array generation tools are supported, including `acts`,
 
 ## Add New Tools
 
-In order to add a new covering array generation too into the service, just 1) prepare a configuration file, and 2) write a function that extracts array sizes.
+In order to add a new covering array generation too into the service, two modifications are required:
+
+1. prepare a configuration file
+2. write a function that extracts array sizes
 
 
 
 #### Configuration File
 
-`cithub-generation` uses a configuration file (in JSON format) to describe the necessary information of running each spesific tool. For example, the following code block gives the configuration file of ACTS (`configuration/acts.json`):
+`cithub-generation` uses a configuration file (in JSON format) to describe the necessary information of running each spesific tool. For example, the following code block gives the configuration file of ACTS (i.e., `configuration/acts.json`):
 
 ```json
 {
@@ -74,8 +78,9 @@ In order to add a new covering array generation too into the service, just 1) pr
 
 Specifially,
 
-* All input parameters of running the tool should be given in the `input` section. Typical input parameters include `model`, `constraint`, and `strength`. Note that some tools can take a `SEED`  parameter, and this parameter does not need to be explicitly described (a random seed value will always be used in each execution).
-* Each tool typically has one `output` parameter. Its type indicates 1) a `file` is specified in the running command, or 2) the results can only be obtained from the `console` (stdout).
+* All input parameters of running the tool should be given in the `input` section. Typical input parameters include `model`, `constraint`, and `strength`. Note that some tools might take a `SEED`  parameter, and this parameter does not need to be explicitly described (a random seed value will always be used in each execution).
+* Each tool should provide one `output` parameter, in either `file` or `stdout` type. In the former case, the tool will write the covering array generated into file; while in the latter case, the generation result can only be obtained from the stdout.
+
 *  `bin` gives the executable binary file of the tool.
 *  `run` gives the particular command to execute the tool, where each parameter is placed into a square brackets `[]`, and the optional part is placed into a brace `{}`. Note that each parameter here should be described in `input` and `output` sections (except `[SEED]`).
 
@@ -83,35 +88,33 @@ Specifially,
 
 #### Extraction Function
 
-Once the execution of the tool finishes,  `cithub-generation` will call the `array_size()` function of the `Extraction` class to extract the exact size of the covering array generated (see `extraction.py`). It is recommended to extract the size from the `console` file generated (stdout), because the tool might run out of time, where no array file is produced.
+Once the execution of the tool finishes,  `cithub-generation` will call the `array_size()` function of the `Extraction` class to extract the exact size of the covering array generated (see `extraction.py`). The input of this process is the `stdout` file by default, because the tool might run out of time, where no array file is produced.
 
 For example, the following gives the extraction function of ACTS.
 
 ```python
 @staticmethod
-  def acts(console):
-    for line in console:
-      if line.startswith('Number of Tests	:'):
-        number = int(line.strip().split()[-1])
-        return number
-    return None
+def acts(console):
+  for line in console[::-1]:
+    if line.startswith('Number of Tests'):
+      num = line.strip().split()[-1]
+      if num.isdigit():
+        return int(num)
+      return None
 ```
 
 
 
 #### Build
 
-After the updating, just rebuild (and publish) the new image, and run the container.
+After the update, build and publish the new image:
 
 ```bash
-docker build -t username/cithub-generation:1.x .
-```
-
-```bash
-docker push username/cithub-generation:1.x
+docker build -t username/cithub-generation:tag .
+docker push username/cithub-generation:tag
 ```
 
 
 
-Note that The current version of `cithub-generation` is especially designed for packaging an existing command-line tool. If you wish to package an algorithm under development, it is recommended to design and implement it as a native docker-based web service.
+Note that the current version of  `cithub-generation` is especially designed for packaging an existing command-line tool. If you wish to deploy an algorithm that is under development, it is recommended to design and implement it as a native docker-based web service.
 

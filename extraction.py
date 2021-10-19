@@ -1,6 +1,6 @@
 class Extraction:
   """
-  The functions to extract array sizes from the console_file of covering array generation tools.
+  The functions to extract array sizes from the stdout_file of covering array generation tools.
   * integer > 0  : the size of an array
   * integer = -2 : the algorithm fails to execute
   * None         : no result is obtained
@@ -143,4 +143,4 @@ class Extraction:
 if __name__ == '__main__':
   alg = 'coffee4j'
   ext = Extraction(alg)
-  print(ext.array_size('example/output/coffee4j-console.txt'))
+  print(ext.array_size('example/stdout/coffee4j.stdout.txt'))

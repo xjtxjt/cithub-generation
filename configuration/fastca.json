@@ -15,9 +15,8 @@
   ],
   "output": {
     "name": "output",
-    "type": "console"
+    "type": "stdout"
   },
   "bin": "FastCA",
-  "run": "FastCA [model] {[constraint]} 3600 [SEED]",
-  "get_size": "awk 'END {print $(NF-1)}' [console]"
+  "run": "FastCA [model] {[constraint]} 3600 [SEED]"
 }

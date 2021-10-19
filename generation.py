@@ -42,43 +42,40 @@ class Generation:
     if self.parameters['algorithm'] == 'tcases':
       run = run.replace('tmp/', '', 1)
     
-    # the command will output the best array size constructed most recently
-    # get_size = get_size.replace('[console]', self.parameters['console'])
-    
     return run
   
   def generation(self):
     """
     Run the specified command to invoke the generation process.
-    The method will try to apply a restrict timeout strategy for conducting comparison experiments
+    The method will try to apply a restrict timeout strategy for conducting comparison experiments.
     """
     # output array & console files
     array_file = self.parameters['output']
-    console_file = self.parameters['console']
+    stdout_file = self.parameters['stdout']
     
     # the run & clean command
-    RUN = self.process_command()
+    RUN_COMMAND = self.process_command()
     self.logger.info('> TIMEOUT = ' + self.parameters['timeout'] + ', repeat = ' + self.parameters['repeat'])
-
+    
     # the result
-    result = {'size': [], 'time': [], 'best': {'size': -1, 'time': -1, 'array': '', 'console': ''}}
+    result = {'size': [], 'time': [], 'best': {'size': -1, 'time': -1, 'array': '', 'stdout': ''}}
     best_size = sys.maxsize
     best_console = ''
     best_content = ''
     
     for i in range(int(self.parameters['repeat'])):
       # randomise seed for some algorithms
-      cd = RUN.replace('[SEED]', str(randrange(999999)))
+      cd = RUN_COMMAND.replace('[SEED]', str(randrange(999999)))
       
-      # if the argument list is too long (e.g., jenny)
+      # if the argument list is too long (for jenny)
       if len(cd) > 131072:
         self.logger.info('> Error: Argument list too long.')
-        with open(console_file, 'w') as file:
+        with open(stdout_file, 'w') as file:
           file.write('Error: Argument list too long.\n')
-        return {'size': [-2], 'time': [-2], 'best': {'size': -2, 'time': -2, 'array': '', 'console': console_file}}
+        return {'size': [-2], 'time': [-2], 'best': {'size': -2, 'time': -2, 'array': '', 'stdout': stdout_file}}
       
       self.logger.info('> RUN: ' + cd)
-      console_out = open(console_file, 'wb')
+      console_out = open(stdout_file, 'wb')
       
       # execute the command
       start = datetime.now()
@@ -98,20 +95,15 @@ class Generation:
       time = (end - start).seconds
       console_out.flush()
       console_out.close()
-
-      # run post-process command, if there exists
-      #if CLEAN is not None:
-        #self.logger.info('> RUN: ' + CLEAN)
-        #subprocess.run(CLEAN)
         
       # if there is no specified output file, or the output file is not produced (due to timeout),
       # then use console as the output
-      if self.parameters['output_type'] == 'console' or not os.path.isfile(array_file):
-        copyfile(console_file, array_file)
+      if self.parameters['output_type'] == 'stdout' or not os.path.isfile(array_file):
+        copyfile(stdout_file, array_file)
       
       # get size from the console file
       extract = Extraction(self.parameters['algorithm'])
-      out = extract.array_size(console_file)
+      out = extract.array_size(stdout_file)
       self.logger.info('> Extraction out = ' + str(out))
       # r = subprocess.run(GET_SIZE, shell=True, capture_output=True)
       # out = bytes.decode(r.stdout).strip()
@@ -122,13 +114,13 @@ class Generation:
         if out == -2:
           self.logger.info('> Result: Unable to execute, time spent = ' + str(time))
           self.delete_files()
-          return {'size': [-2], 'time': [-2], 'best': {'size': -2, 'time': -2, 'array': '', 'console': console_file}}
+          return {'size': [-2], 'time': [-2], 'best': {'size': -2, 'time': -2, 'array': '', 'stdout': stdout_file}}
         # 2) terminate before timeout, runs out of memory
         #    in this case, only one repetition is needed
         elif out == -9 or time < int(self.parameters['timeout']) - 10:
           self.logger.info('> Result: Run out of memory, time spent = ' + str(time))
           self.delete_files()
-          return {'size': [-9], 'time': [-9], 'best': {'size': -9, 'time': -9, 'array': '', 'console': console_file}}
+          return {'size': [-9], 'time': [-9], 'best': {'size': -9, 'time': -9, 'array': '', 'stdout': stdout_file}}
         # 3) runs out of time
         else:
           result['size'].append(-1)
@@ -146,7 +138,7 @@ class Generation:
         result['best']['size'] = size
         result['best']['time'] = time
         encoding = 'ISO-8859-1' if self.parameters['algorithm'] == 'medici' else 'utf-8'
-        with open(console_file, 'r', encoding=encoding) as f:
+        with open(stdout_file, 'r', encoding=encoding) as f:
           best_console = f.read()
         with open(array_file, 'r', encoding=encoding) as f:
           best_content = f.read()
@@ -156,13 +148,13 @@ class Generation:
     
     # save the final best array files
     if best_console != '':
-      with open(console_file, 'w', encoding='utf-8') as f:
+      with open(stdout_file, 'w', encoding='utf-8') as f:
         f.writelines(best_console)
     if best_content != '':
       with open(array_file, 'w', encoding='utf-8') as f:
         f.write(best_content)
     result['best']['array'] = array_file
-    result['best']['console'] = console_file
+    result['best']['stdout'] = stdout_file
     
     return result
   
@@ -175,7 +167,7 @@ class Generation:
     # SPECIAL TREATMENT
     # tcases: remove files 'tmp/XXX-Generators.json', 'tcases.log'
     if self.parameters['algorithm'] == 'tcases':
-      tmp_file = self.parameters['console'].replace('.console', '-Generators.json')
+      tmp_file = self.parameters['stdout'].replace('.stdout', '-Generators.json')
       if os.path.isfile(tmp_file):
         os.remove(tmp_file)
       if os.path.isfile('tcases.log'):

@@ -1,54 +1,65 @@
 import requests
 import os
 
-# An example of using the service
-API_URL = 'http://127.0.0.1:5000'
-FOLDER = os.path.dirname(os.path.abspath(__file__))
 
-
-def read_model_files(alg, name, tway):
-  file, content = None, None
+def parse_filenames(directory, algorithm, name, strength):
+  model_file, constraint_file = None, None
   # use CASA format (CASA, FastCA, medici)
-  if alg in ['casa', 'fastca', 'medici']:
-    file = {'model': open('files/{}-casa-{}-way.model'.format(name, tway)),
-            'constraint': open('files/{}-casa-{}-way.constraint'.format(name, tway))}
+  if algorithm in ['casa', 'fastca', 'medici']:
+    model_file = '{}/{}-casa-{}-way.model'.format(directory, name, strength)
+    constraint_file = '{}/{}-casa-{}-way.constraint'.format(directory, name, strength)
   # use a single model file (ACTS, PICT, Tcases)
-  elif alg in ['acts', 'pict', 'tcases']:
-    file = {'model': open('files/{}-{}.model'.format(name, alg))}
+  elif algorithm in ['acts', 'pict', 'tcases']:
+    model_file = '{}/{}-{}.model'.format(directory, name, algorithm)
   # use ACTS format (coffee4j, jcunit)
-  elif alg in ['coffee4j', 'jcunit']:
-    file = {'model': open('files/{}-acts.model'.format(name, alg))}
+  elif algorithm in ['coffee4j', 'jcunit']:
+    model_file = '{}/{}-acts.model'.format(directory, name, algorithm)
   # the content in the model file should be appended in the run command (jenny)
-  elif alg == 'jenny':
-    with open('files/{}-jenny-{}-way.model'.format(name, tway)) as file:
-      content = file.readline().strip()
+  elif algorithm == 'jenny':
+    model_file = '{}/{}-jenny-{}-way.model'.format(directory, name, strength)
+  
+  return model_file, constraint_file
 
-  return file, content
 
+if __name__ == '__main__':
+  # an example of using the service
+  API_URL = 'http://127.0.0.1:5000'
+  directory = 'models'
 
-# required parameters
-strength = 5
-algorithm = 'tcases'
-model = 'M41_V1'
-files, model_plain = read_model_files(algorithm, model, strength)
-data = {'algorithm': algorithm, 'model': model, 'timeout': 1000, 'repeat': 1,
-        'strength': strength, 'model_plain': model_plain}
+  r = requests.get(API_URL)
+  print(r.json())
+  
+  # parameters required
+  algorithm = 'casa'
+  name = 'aircraft'
+  strength = 2
 
-r = requests.get(API_URL)
-print(r.json())
+  model_file, constraint_file = parse_filenames(directory, algorithm, name, strength)
+  data = {'algorithm': algorithm, 'model': name, 'strength': strength}
+  
+  # option 1: use plain text as the input
+  data['model_text'] = open(model_file).read()
+  if constraint_file is not None:
+    data['constraint_text'] = open(constraint_file).read()
+  r = requests.post(API_URL + '/generation', data=data)
+  
+  # option 2: use files as the input
+  # files = {'model': open(model_file)}
+  # if constraint_file is not None:
+  #   files['constraint'] = open(constraint_file)
+  # r = requests.post(API_URL + '/generation', data=data, files=files)
 
-r = requests.post(API_URL + '/generation', data=data, files=files)
-if r.status_code == 200:
+  # results
   jn = r.json()
   print(jn)
-
-  # get files
-  print('\n---------------- array ----------------')
-  if jn['result']['best']['array'] != '':
-    r = requests.get(API_URL + '/' + jn['result']['best']['array'])
-    print(bytes.decode(r.content))
   
-  print('\n---------------- console ----------------')
-  if jn['result']['best']['console'] != '':
-    r = requests.get(API_URL + '/' + jn['result']['best']['console'])
-    print(bytes.decode(r.content))
+  if r.status_code == 200:
+    print('\n---------------- array ----------------')
+    if jn['result']['best']['array'] != '':
+      r = requests.get(API_URL + '/' + jn['result']['best']['array'])
+      print(bytes.decode(r.content))
+    
+    print('\n---------------- stdout ----------------')
+    if jn['result']['best']['stdout'] != '':
+      r = requests.get(API_URL + '/' + jn['result']['best']['stdout'])
+      print(bytes.decode(r.content))

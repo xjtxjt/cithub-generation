@@ -18,6 +18,5 @@
     "type": "file"
   },
   "bin": "casa-1.1b",
-  "run": "casa-1.1b [model] {-c [constraint]} -o [output]",
-  "get_size": "grep 'Met coverage with' [console] | awk 'END {print $(NF-1)}'"
+  "run": "casa-1.1b [model] {-c [constraint]} -o [output]"
 }

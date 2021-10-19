@@ -15,9 +15,8 @@
   ],
   "output": {
     "name": "output",
-    "type": "console"
+    "type": "stdout"
   },
   "bin": "pict",
-  "run": "pict [model] /o:[strength] /r:[SEED]",
-  "get_size": "expr $(sed -n '$=' [console]) - 1"
+  "run": "pict [model] /o:[strength] /r:[SEED]"
 }
