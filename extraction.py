@@ -45,13 +45,23 @@ class Extraction:
   @staticmethod
   def pict(console):
     if len(console) > 1:
+      # for abstract model
       start_line = 0
       for line in console:
         if line.split()[0].strip().isdigit():
           break
         start_line += 1
       size = len(console) - start_line
-      return size if size > 0 else None
+      if size > 0:
+        return size
+
+      # for original model
+      length = len(console[-1].split())
+      count = 0
+      for line in console[::-1]:
+        if len(line.split()) == length:
+          count += 1
+      return count if count > 1 else None
     else:
       return None
   
@@ -141,6 +151,6 @@ class Extraction:
 
 
 if __name__ == '__main__':
-  alg = 'coffee4j'
+  alg = 'pict'
   ext = Extraction(alg)
-  print(ext.array_size('example/stdout/coffee4j.stdout.txt'))
+  print(ext.array_size('example/stdout/pict.origin.stdout.txt'))

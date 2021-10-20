@@ -44,7 +44,11 @@ def parameter_process(config, form_data, file_data, file_prefix):
     'timeout': form_data.get('timeout', '100'),
     'repeat': form_data.get('repeat', '1')
   }
-  
+
+  # acts could produce arrays of different formats
+  if parameters['algorithm'] == 'acts':
+    parameters['array_format'] = form_data.get('array_format', 'numeric')
+
   # input files
   for each in config['input']:
     # determine whether the post request contains the required files, and save these files in the tmp directory
@@ -63,9 +67,10 @@ def parameter_process(config, form_data, file_data, file_prefix):
         return None
     # other non-file parameters
     else:
-      if each['name'] not in form_data:
+      if each['name'] not in form_data and each['name'] not in parameters:
         return None
-      parameters[each['name']] = form_data[each['name']]
+      if each['name'] in form_data:
+        parameters[each['name']] = form_data[each['name']]
   
   # output files
   parameters['output'] = os.path.join(TEMP_DIR, file_prefix + '.array')

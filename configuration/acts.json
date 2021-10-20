@@ -11,6 +11,10 @@
     {
       "name": "strength",
       "type": "number"
+    },
+    {
+      "name": "array_format",
+      "type": "string"
     }
   ],
   "output": {
@@ -18,5 +22,5 @@
     "type": "file"
   },
   "bin": "acts_3.0.jar",
-  "run": "java -Ddoi=[strength] -Doutput=numeric -jar acts_3.0.jar [model] [output]"
+  "run": "java -Ddoi=[strength] -Doutput=[array_format] -jar acts_3.0.jar [model] [output]"
 }

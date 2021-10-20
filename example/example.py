@@ -1,24 +1,27 @@
 import requests
-import os
 
 
 def parse_filenames(directory, algorithm, name, strength):
-  model_file, constraint_file = None, None
-  # use CASA format (CASA, FastCA, medici)
+  model_filename, constraint_filename = None, None
+
+  # CASA, FastCA, medici: use CASA format
   if algorithm in ['casa', 'fastca', 'medici']:
-    model_file = '{}/{}-casa-{}-way.model'.format(directory, name, strength)
-    constraint_file = '{}/{}-casa-{}-way.constraint'.format(directory, name, strength)
-  # use a single model file (ACTS, PICT, Tcases)
+    model_filename = '{}/{}-casa-{}-way.model'.format(directory, name, strength)
+    constraint_filename = '{}/{}-casa-{}-way.constraint'.format(directory, name, strength)
+
+  # ACTS, PICT, Tcases: use their respective single model files
   elif algorithm in ['acts', 'pict', 'tcases']:
-    model_file = '{}/{}-{}.model'.format(directory, name, algorithm)
-  # use ACTS format (coffee4j, jcunit)
+    model_filename = '{}/{}-{}.model'.format(directory, name, algorithm)
+
+  # coffee4j, jcunit: use ACTS format
   elif algorithm in ['coffee4j', 'jcunit']:
-    model_file = '{}/{}-acts.model'.format(directory, name, algorithm)
-  # the content in the model file should be appended in the run command (jenny)
+    model_filename = '{}/{}-acts.model'.format(directory, name, algorithm)
+
+  # jenny: use jenny format (should use plain text as the input)
   elif algorithm == 'jenny':
-    model_file = '{}/{}-jenny-{}-way.model'.format(directory, name, strength)
+    model_filename = '{}/{}-jenny-{}-way.model'.format(directory, name, strength)
   
-  return model_file, constraint_file
+  return model_filename, constraint_filename
 
 
 if __name__ == '__main__':
@@ -54,7 +57,7 @@ if __name__ == '__main__':
   print(jn)
   
   if r.status_code == 200:
-    print('\n---------------- array ----------------')
+    print('\n---------------- array -----------------')
     if jn['result']['best']['array'] != '':
       r = requests.get(API_URL + '/' + jn['result']['best']['array'])
       print(bytes.decode(r.content))

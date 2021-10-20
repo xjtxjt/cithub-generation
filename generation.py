@@ -160,9 +160,9 @@ class Generation:
   
   def delete_files(self):
     # delete test model files
-    #for e in ['model', 'constraint']:
-    #  if e in self.parameters:
-    #    os.remove(self.parameters[e])
+    for e in ['model', 'constraint']:
+      if e in self.parameters:
+        os.remove(self.parameters[e])
 
     # SPECIAL TREATMENT
     # tcases: remove files 'tmp/XXX-Generators.json', 'tcases.log'
