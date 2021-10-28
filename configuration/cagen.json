@@ -1,0 +1,27 @@
+{
+  "name": "CAgen",
+  "version": "1.2",
+  "author": "SBA Research",
+  "link": "https://matris.sba-research.org/tools/cagen",
+  "input": [
+    {
+      "name": "model",
+      "type": "file"
+    },
+    {
+      "name": "strength",
+      "type": "number"
+    },
+    {
+      "name": "core_algorithm",
+      "type": "string",
+      "default": "ipog-f"
+    }
+  ],
+  "output": {
+    "name": "output",
+    "type": "stdout"
+  },
+  "bin": "fipo-cli",
+  "run": "fipo-cli -t [strength] -a [core_algorithm] -p --randomize -i [model]"
+}

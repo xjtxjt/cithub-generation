@@ -11,6 +11,7 @@ class Extraction:
     self.switcher = {
       'acts': lambda x: self.acts(x),
       'pict': lambda x: self.pict(x),
+      'cagen': lambda x: self.cagen(x),
       'casa': lambda x: self.casa(x),
       'fastca': lambda x: self.fastca(x),
       'jenny': lambda x: self.jenny(x),
@@ -65,6 +66,16 @@ class Extraction:
     else:
       return None
   
+  @staticmethod
+  def cagen(console):
+    for line in console:
+      if line.startswith('size'):
+        number = int(line.strip().split()[1])
+        return number
+      if line.find('error') > 0 or line.find('ERROR') > 0:
+        return -2
+    return None
+    
   @staticmethod
   def casa(console):
     for line in console[::-1]:

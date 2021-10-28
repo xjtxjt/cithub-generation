@@ -14,7 +14,8 @@
     },
     {
       "name": "array_format",
-      "type": "string"
+      "type": "string",
+      "default": "numeric"
     }
   ],
   "output": {

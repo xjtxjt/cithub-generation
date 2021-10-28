@@ -1,0 +1,14 @@
+[System]
+Name: Example
+
+[Parameter]
+Race(enum): Human,Halfling,Elf,Orc
+Weapon(enum): Dagger,Greatsword,Bow,Staff
+Class(enum): Thief,Mage,Warrior
+Shield(enum): TRUE,FALSE
+Armor(enum): Light,Heavy
+
+[Constraint]
+Race = "Halfling" => Weapon != "Greatsword"
+Class = "Mage" => Weapon = "Staff"
+Race = "Orc" => (Armor = "Heavy" && (Weapon = "Greatsword" || Weapon = "Bow"))

@@ -11,7 +11,11 @@ from generation import Generation
 app = Flask(__name__)
 
 # set up
-TOOLS_SUPPORTED = ['acts', 'pict', 'casa', 'fastca', 'jenny', 'medici', 'tcases', 'coffee4j', 'jcunit']
+TOOLS_SUPPORTED = []
+for subdir, dirs, files in os.walk('configuration'):
+  for file in files:
+    TOOLS_SUPPORTED.append(file.split('.json')[0])
+
 BIN_DIR = 'bin' if os.environ.get('C_BIN') is None else os.environ.get('C_BIN')
 TEMP_DIR = 'tmp'
 
@@ -45,10 +49,6 @@ def parameter_process(config, form_data, file_data, file_prefix):
     'repeat': form_data.get('repeat', '1')
   }
 
-  # acts could produce arrays of different formats
-  if parameters['algorithm'] == 'acts':
-    parameters['array_format'] = form_data.get('array_format', 'numeric')
-
   # input files
   for each in config['input']:
     # determine whether the post request contains the required files, and save these files in the tmp directory
@@ -68,7 +68,11 @@ def parameter_process(config, form_data, file_data, file_prefix):
     # other non-file parameters
     else:
       if each['name'] not in form_data and each['name'] not in parameters:
-        return None
+        # if there is a default value
+        if 'default' in each:
+          parameters[each['name']] = each['default']
+        else:
+          return None
       if each['name'] in form_data:
         parameters[each['name']] = form_data[each['name']]
   

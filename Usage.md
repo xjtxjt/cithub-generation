@@ -6,13 +6,14 @@ Currently, `cithub-generation` supports nine covering array generation tools:
 | -------- | --------------------- | ------------------------------------------------------------ | ----------------- |
 | ACTS     | Greedy (IPO)          | [link](https://csrc.nist.gov/Projects/automated-combinatorial-testing-for-software/downloadable-tools) | ACTS              |
 | PICT     | Greedy                | [link](https://github.com/microsoft/pict)                    | PICT              |
+| CAgen    | Greedy (IPO)          | [link](https://matris.sba-research.org/tools/cagen)          | ACTS              |
 | CASA     | Simulated Annealing   | [link](http://cse.unl.edu/~citportal/)                       | CASA              |
 | FastCA   | Tabu Search           | [link](https://github.com/jkunlin/fastca)                    | CASA              |
-| Jenny    | Greedy                | [link](https://burtleburtle.net/bob/math/jenny.html)         | Jenny             |
+| jenny    | Greedy                | [link](https://burtleburtle.net/bob/math/jenny.html)         | Jenny             |
 | medici   | Greedy (BDD)          | [link](https://github.com/garganti/medici)                   | CASA              |
 | Tcases   | Greedy                | [link](https://github.com/Cornutum/tcases)                   | Tcases            |
-| JCUnit   | Greedy                | [link](https://github.com/dakusui/jcunit)                    | ACTS              |
-| coffee4j | Greedy                | [link](https://coffee4j.github.io)                           | ACTS              |
+| JCUnit   | Greedy                | [link](https://github.com/dakusui/jcunit)                    | ACTS (abstract)   |
+| coffee4j | Greedy                | [link](https://coffee4j.github.io)                           | ACTS (abstract)   |
 
 
 
@@ -20,7 +21,7 @@ Currently, `cithub-generation` supports nine covering array generation tools:
 
 #### Input Parameters
 
-The service will first look for `model_text` and `constraint_text` of the form data, and use the content provided to create their respective files (all tools take model files as the input, except for `jenny`). If such content is not provided, the service will look for the file data and upload necessary model files. Note that some tools require only a model text/file, while some others require two texts/files (in particular, the CASA format). 
+The service will first look for `model_text` and `constraint_text` of the form data, and use the content provided to create their respective files (all tools take model files as the input, except for `jenny`). If such content is not provided, the service will look for the file data and upload necessary model files. Note that some tools require only a model text/file, while some others require two texts/files (in particular, the CASA format).
 
 **Form Data**
 
@@ -33,6 +34,13 @@ The service will first look for `model_text` and `constraint_text` of the form d
 | `repeat`          | int    |           | number of repetitions, default = 1                           |
 | `model_text`      | string |           | the plain text of test model file                            |
 | `constraint_text` | string |           | the plain text of constraint file                            |
+
+Additional parameters supported:
+
+* ACTS: the format of covering array generated can be additionally specificed by a parameter `array_format`. Available options include `numeric`,  `nist` and `csv`, with `numeric` as the default value.
+* CAgen: the core generation algorithm can be additionally specificed by a parameter `core_algorithm`. Available options include `ipog`, `ipog-f`, and `ipog-f2`, with `ipog-f` as the default value.
+
+
 
 **File Data**
 
@@ -83,13 +91,14 @@ The test model that only describes the number of parameters and sizes of paramet
 
 **The tools supporting both abstract and concrete test models:**
 
-* `acts`: return array of `numeric` format by default. This format can be specified by adding an `array_format` input parameter in the Form Data (available options include `numeric`,  `nist` and `csv`).
-* `pict`: return array plain text.
-* `tcases`: return array JSON format.
+* ACTS
+* PICT
+* CAgen
+* Tcases
 
 **The tools supporting abstract test models only:**
 
-* `casa`, `fastca`, and `medici`: by definition of CASA format. Especially, `fastca` will only report the minimum array sizes, without yielding the covering array.
-* `jenny`: by definition of Jenny format.
-* `jcunit` and `coffee4j`: these two tools require a specific variant of ACTS format, which uses abstract information to describe parameters and values (e.g., `p0(int):0,1`), and uses forbidden tuples to describe constraints (e.g., `p11!= 1 || p12!= 0`).
+* CASA, FastCA, and medici: by definition of CASA format. Especially, FastCA will only report the minimum array sizes, without yielding the covering array.
+* jenny: by definition of Jenny format.
+* JCUnit and coffee4j: these two tools require a specific variant of ACTS format, which uses abstract information to describe parameters and values (e.g., `p0(int):0,1`), and uses forbidden tuples to describe constraints (e.g., `p11!= 1 || p12!= 0`).
 

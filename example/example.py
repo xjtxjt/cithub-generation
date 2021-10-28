@@ -13,8 +13,8 @@ def parse_filenames(directory, algorithm, name, strength):
   elif algorithm in ['acts', 'pict', 'tcases']:
     model_filename = '{}/{}-{}.model'.format(directory, name, algorithm)
 
-  # coffee4j, jcunit: use ACTS format
-  elif algorithm in ['coffee4j', 'jcunit']:
+  # cagen, coffee4j, jcunit: use ACTS format
+  elif algorithm in ['cagen', 'coffee4j', 'jcunit']:
     model_filename = '{}/{}-acts.model'.format(directory, name, algorithm)
 
   # jenny: use jenny format (should use plain text as the input)
@@ -34,8 +34,8 @@ if __name__ == '__main__':
   
   # parameters required
   algorithm = 'acts'
-  name = 'aircraft'
-  strength = 2
+  name = 'grep'
+  strength = 3
 
   model_file, constraint_file = parse_filenames(directory, algorithm, name, strength)
   data = {'algorithm': algorithm, 'model': name, 'strength': strength}
