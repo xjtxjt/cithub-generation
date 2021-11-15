@@ -53,19 +53,19 @@ def parameter_process(config, form_data, file_data, file_prefix):
   for each in config['input']:
     # determine whether the post request contains the required files, and save these files in the tmp directory
     if each['type'] == 'file':
-      parameters[each['name']] = os.path.join(TEMP_DIR, '{}.{}'.format(file_prefix, each['name']))
+      filename = os.path.join(TEMP_DIR, '{}.{}'.format(file_prefix, each['name']))
       # if provided as plain text
       if each['name'] + '_text' in form_data:
-        file = open(parameters[each['name']], 'w')
+        file = open(filename, 'w')
         file.write(form_data[each['name'] + '_text'])
         file.close()
+        parameters[each['name']] = filename
       # if provided as a file
       elif each['name'] in file_data:
         file = file_data[each['name']]
-        file.save(parameters[each['name']])
-      else:
-        return None
-    # other non-file parameters
+        file.save(filename)
+        parameters[each['name']] = filename
+    # other non-file parameters (cannot be empty)
     else:
       if each['name'] not in form_data and each['name'] not in parameters:
         # if there is a default value

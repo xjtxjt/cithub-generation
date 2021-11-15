@@ -33,17 +33,17 @@ if __name__ == '__main__':
   print(r.json())
   
   # parameters required
-  algorithm = 'acts'
-  name = 'grep'
-  strength = 3
+  algorithm = 'casa'
+  name = 'aircraft'
+  strength = 2
 
   model_file, constraint_file = parse_filenames(directory, algorithm, name, strength)
   data = {'algorithm': algorithm, 'model': name, 'strength': strength}
   
   # option 1: use plain text as the input
   data['model_text'] = open(model_file).read()
-  if constraint_file is not None:
-    data['constraint_text'] = open(constraint_file).read()
+  #if constraint_file is not None:
+  #  data['constraint_text'] = open(constraint_file).read()
   r = requests.post(API_URL + '/generation', data=data)
   
   # option 2: use files as the input
