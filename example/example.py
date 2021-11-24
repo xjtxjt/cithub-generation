@@ -33,7 +33,7 @@ if __name__ == '__main__':
   print(r.json())
   
   # parameters required
-  algorithm = 'casa'
+  algorithm = 'acts'
   name = 'aircraft'
   strength = 2
 

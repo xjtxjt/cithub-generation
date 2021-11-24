@@ -100,7 +100,7 @@ class Extraction:
           line.find('a dimension must have at least 2 features') > 0 or \
           line.find('impossible with only 0 dimensions') > 0 or \
           line.find('Argument list too long') > 0 or \
-          line.find('was given twice'):
+          line.find('was given twice') > 0:
         return -2
     return len(console) if len(console) > 0 else None
   
