@@ -133,7 +133,8 @@ def generation():
     # invoke the generation service
     service = Generation(parameters, app.logger, BIN_DIR)
     result = service.generation()
-    return {'result': result}
+    # result.headers['Access-Control-Allow-Origin'] = "*"
+    return {'result': result},"666 nice success",{"Access-Control-Allow-Origin":"*"}
 
 
 @app.route('/tmp/<path:path>')
