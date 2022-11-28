@@ -1,0 +1,23 @@
+{
+    "name": "ctlog BOT-its",
+    "version": "0.5.0",
+    "author": "Logic & Optimization Group (LOG) ",
+    "link": "http://ulog.udl.cat/",
+    "input": [
+      {
+        "name": "model",
+        "type": "file"
+      },
+      {
+        "name": "strength",
+        "type": "number"
+      }
+    ],
+    "output": {
+      "name": "output",
+      "type": "stdout"
+    },
+    "bin": "ctlog PRBOT-its",
+    "run": "ctlog PRBOT-its --in-format acts --strength [strength]  --out-file  [output] [model]"
+  }
+  

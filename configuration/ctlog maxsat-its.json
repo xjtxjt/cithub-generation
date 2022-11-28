@@ -1,0 +1,23 @@
+{
+    "name": "ctlog maxsat-its",
+    "version": "0.5.0",
+    "author": "Logic & Optimization Group (LOG) ",
+    "link": "http://ulog.udl.cat/",
+    "input": [
+      {
+        "name": "model",
+        "type": "file"
+      },
+      {
+        "name": "strength",
+        "type": "number"
+      }
+    ],
+    "output": {
+      "name": "output",
+      "type": "stdout"
+    },
+    "bin": "ctlog maxsat-its",
+    "run": "ctlog maxsat-its --in-format acts --strength [strength] --out-file [output] [model]"
+  }
+  

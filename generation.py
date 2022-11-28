@@ -23,8 +23,11 @@ class Generation:
     binary = self.parameters['bin']
     run = self.parameters['run']
     
+    if(binary=="ctlog PRBOT-its" or "ctlog maxsat-its"):
+      pass
     # add path of executable binary
-    run = run.replace(binary, os.path.join(self.base, binary))
+    else:
+      run = run.replace(binary, os.path.join(self.base, binary))
     
     # whether there is a constraint file
     if 'constraint' not in self.parameters:
