@@ -23,7 +23,8 @@ class Generation:
     binary = self.parameters['bin']
     run = self.parameters['run']
     
-    if(binary=="ctlog PRBOT-its" or "ctlog maxsat-its"):
+    # if(binary=="ctlog PRBOT-its" or "ctlog maxsat-its"):
+    if(binary=="ctlog PRBOT-its"):
       pass
     # add path of executable binary
     else:
