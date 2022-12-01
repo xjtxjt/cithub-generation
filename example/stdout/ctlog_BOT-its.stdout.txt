@@ -1,0 +1,63 @@
+------------------------------------------------------------------
+Logic & Optimization Group (c)
+CTLog 0.5.0 beta
+------------------------------------------------------------------
+
+******************************************************************
+* By using the software, you are agreeing to be bound by all the *
+* terms in the provided license (LICENSE.txt).                   *
+* If you do not agree to the license terms, abort this execution *
+* and do not use the software.                                   *
+******************************************************************
+
+Product licensed to user [Logic & Optimization Group (LOG)]
+Valid until: Wed Sep 27 00:00:00 2023
+
+c CMD: /usr/local/bin/ctlog PRBOT-its --in-format acts --strength 2 --out-file tmp/ctlog_BOT-its-new-2-way-JRBI.array tmp/ctlog_BOT-its-new-2-way-JRBI.model
+c Namespace(all_missing_tuples=False, command='PRBOT-its', complete_tests=True, end_tupl=None, filter_tuples=False, impl='new', in_file='tmp/ctlog_BOT-its-new-2-way-JRBI.model', in_format='acts', intermediate_maxsat_timeout=None, max_mem_GB=None, max_parallel_jobs=48, max_pool_size=None, max_window_size=7500000, maxsat_timeout=None, min_free_tests=10, out_file='tmp/ctlog_BOT-its-new-2-way-JRBI.array', out_folder=PosixPath('.'), out_format='csv', parallel_num_pools=None, pool_impl='py', progressive=False, pv_heuristic='exact', run_command=<compiled_function main at 0x7fa45674d130>, seed=1, skip_validation=False, start_tupl=None, strength=2, submitter_script=None, time_limit=None, ws_csv_folder=None)
+c Initializing PRBOT-its with start tuple 'None' and end tuple 'None'
+c Finish TuplsMngr initialization
+c Memory consumption (MB): 113.50390625
+c [PoolManager] No more unseen tuples
+c Memory consumption (MB): 114.53125
+o T:1;TCov:253;AccCov:253
+c Num forbidden: 90
+c Memory consumption (MB): 114.71875
+o T:2;TCov:217;AccCov:470
+c Num forbidden: 255
+c Memory consumption (MB): 114.71875
+o T:3;TCov:111;AccCov:581
+c Num forbidden: 257
+c Memory consumption (MB): 114.71875
+o T:4;TCov:69;AccCov:650
+c Num forbidden: 259
+c Memory consumption (MB): 114.71875
+o T:5;TCov:24;AccCov:674
+c Num forbidden: 262
+c Memory consumption (MB): 114.71875
+o T:6;TCov:22;AccCov:696
+c Num forbidden: 263
+c Memory consumption (MB): 114.71875
+o T:7;TCov:6;AccCov:702
+c Num forbidden: 267
+c Memory consumption (MB): 114.71875
+o T:8;TCov:21;AccCov:723
+c Num forbidden: 267
+c Memory consumption (MB): 114.71875
+o T:9;TCov:2;AccCov:725
+c Num forbidden: 267
+c Memory consumption (MB): 114.71875
+o T:10;TCov:12;AccCov:737
+c Num forbidden: 268
+c Memory consumption (MB): 114.71875
+o T:11;TCov:2;AccCov:739
+c Num forbidden: 268
+c Memory consumption (MB): 114.71875
+o T:12;TCov:2;AccCov:741
+c Num forbidden: 270
+c Memory consumption (MB): 114.71875
+Test suite size: 12
+Validating real test suite with 12 tests...
+VALIDATION OK
+Num covered: 741
+Num forbidden: 271

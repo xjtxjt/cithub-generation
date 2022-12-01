@@ -124,10 +124,11 @@ def generation():
     
     # pre-process of parameters
     parameters = parameter_process(config, request.form, request.files, prefix)
+    # print("parameters是:",parameters)
     if parameters is None:
       return make_response(jsonify('please check input parameters'), 404)
       
-    app.logger.info('> ------------------------------------------------------------------ <')
+    app.logger.info('> --------------------------parameters---------------------------------------- <')
     app.logger.info(parameters)
 
     # invoke the generation service

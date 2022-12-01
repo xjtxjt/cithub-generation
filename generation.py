@@ -46,6 +46,7 @@ class Generation:
     if self.parameters['algorithm'] == 'tcases':
       run = run.replace('tmp/', '', 1)
     
+
     return run
   
   def generation(self):
@@ -78,7 +79,9 @@ class Generation:
           file.write('Error: Argument list too long.\n')
         return {'size': [-2], 'time': [-2], 'best': {'size': -2, 'time': -2, 'array': '', 'stdout': stdout_file}}
       
-      self.logger.info('> RUN: ' + cd)
+      # self.logger.info('> RUN: ' + cd)
+      self.logger.info("--------------------------RUN_COMMAND-----------------------")
+      self.logger.info(cd)
       console_out = open(stdout_file, 'wb')
       
       # execute the command

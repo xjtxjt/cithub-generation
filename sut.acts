@@ -1,0 +1,19 @@
+[System]
+DefaultName
+
+[Parameter]
+OS (enum) : L,W,M,i,A
+Pl (enum) : F,S,C,A
+Re (enum) : K,F,H,W
+Or (enum) : P,L
+
+[Constraint]
+C1: (OS != A || Or == L)
+C2: (OS != L || Pl != A)
+C3: (OS != W || Or == L)
+C4: (OS != W || Pl != A)
+C5: (OS != M || Or == L)
+C6: (OS != M || Pl != A)
+C7: (Pl != S || OS == M || OS == i)
+C8: (OS != i || Re != K)
+C9: (OS != A || Re != K)

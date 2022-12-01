@@ -18,7 +18,8 @@ class Extraction:
       'medici': lambda x: self.medici(x),
       'tcases': lambda x: self.tcases(x),
       'coffee4j': lambda x: self.coffee4j(x),
-      'jcunit': lambda x: self.jcunit(x)
+      'jcunit': lambda x: self.jcunit(x),
+      'ctlog_BOT-its': lambda x: self.ctlogBOTits(x)
     }
   
   def array_size(self, console_file):
@@ -161,8 +162,22 @@ class Extraction:
         return int(line.strip().split()[-1])
     return None
 
+  @staticmethod
+  def ctlogBOTits(console):
+    for line in console:
+      if (line.find("suite size")>0):
+        temparray=line.split(":")
+        return int(temparray[1])
+      if line.find("another exception occurred:") >0 or line.find("most recent call last")>0:
+      # if line.find("During handling of the above exception, another exception occurred:") >0 or line.find("most recent call last")>0:
+        return -2
+    return None
+      
+    
+
+
 
 if __name__ == '__main__':
-  alg = 'pict'
+  alg = 'ctlog_BOT-its'
   ext = Extraction(alg)
-  print(ext.array_size('example/stdout/pict.origin.stdout.txt'))
+  print(ext.array_size('example/stdout/ctlog_BOT-its.stdout.txt'))

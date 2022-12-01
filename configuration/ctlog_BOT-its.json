@@ -15,7 +15,7 @@
     ],
     "output": {
       "name": "output",
-      "type": "stdout"
+      "type": "file"
     },
     "bin": "ctlog PRBOT-its",
     "run": "ctlog PRBOT-its --in-format acts --strength [strength]  --out-file  [output] [model]"

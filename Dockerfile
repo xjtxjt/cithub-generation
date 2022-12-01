@@ -1,10 +1,12 @@
 FROM waynedd/cithub-base:1.2
 
 COPY requirements.txt ./
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt \
+    pip install ctlog==0.5.0
 
 WORKDIR /cithub-generation
-COPY . /cithub-generation
+COPY . /cithub-generation 
+COPY .ctlog.lic  /root/
 
 EXPOSE 6000
 
